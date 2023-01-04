@@ -1,0 +1,143 @@
+﻿@{
+	Layout = null;
+}
+<!doctype html>
+<html lang="en">
+<head>
+
+	<title>Login</title>
+
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+	<style>
+
+	</style>
+
+</head>
+<body class="text-center bg-dark">
+	<img id="logo" class="mb-4" src="~/img/logo.png" alt="" width="auto" height="auto">
+	<main class="form-signin ">
+		<form>
+			
+			<h1 class="h3 mb-3 fw-normal text-light">Please sign in</h1>
+
+			<div class="form-floating ">
+				<input type="email" class="form-control" id="txtUsername" placeholder="name@example.com">
+				<label for="floatingInput">User Name</label>
+			</div>
+			<div class="form-floating">
+				<input type="password" class="form-control" id="txtPassword" placeholder="Password">
+				<label for="floatingPassword">Password</label>
+			</div>
+
+			<div class="checkbox mb-3 text-light">
+				<label>
+					<input type="checkbox" value="remember-me"> Remember me
+				</label>
+			</div>
+			<button class="w-100 btn btn-lg btn-primary" type="button" onclick="login()">Sign in</button>
+			<button class="mt-3 w-100 btn btn-lg btn-info"
+					data-bs-toggle="modal" data-bs-target="#modalRegister"
+					type="button" onclick="register()">
+				Register
+			</button>
+
+			<p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+		</form>
+	</main>
+	<div id="modalRegister" class="modal fade" tabindex="-1">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Register New User</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form action="/Login/Register" method="post" class="row g-3 needs-validation" novalidate>
+						<div class="col-md-4">
+							<label for="txtFullname" class="form-label">Full name</label>
+							<input type="text" class="form-control" name="txtFullname" id="txtFullname" value="" required>
+							<div class="valid-feedback">
+								Looks good!
+							</div>
+						</div>
+						<div class="col-md-4">
+							<label for="validationCustomUsername" class="form-label">User name</label>
+							<div class="input-group has-validation">
+								<span class="input-group-text" id="inputGroupPrepend">ID</span>
+								<input type="text" class="form-control" name="txtUsername1" id="txtUsername1" aria-describedby="inputGroupPrepend" required>
+								<div class="valid-feedback">
+									Looks good!
+								</div>
+								<div class="invalid-feedback">
+									Please choose a username.
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<label for="validationCustom02" class="form-label">Password</label>
+							<input type="password" class="form-control" name="txtPassword1" id="txtPassword1" required>
+							<div class="valid-feedback">
+								Looks good!
+							</div>
+							<div class="invalid-feedback">
+								Please insert password.
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<label for="validationCustom03" class="form-label">City</label>
+							<input type="text" class="form-control" name="txtCity" id="txtCity" required>
+							<div class="invalid-feedback">
+								Please provide a valid city.
+							</div>
+						</div>
+						<div class="col-md-3">
+							<label for="validationCustom04" class="form-label">State</label>
+							<select class="form-select" name="selState" id="selState" required>
+								<option selected disabled value="">Choose...</option>
+								@*@foreach (var p in Model)
+								{
+									<option value="@p.Id">@p.Province1</option>
+								}*@
+
+
+							</select>
+							<div class="invalid-feedback">
+								Please select a valid state.
+							</div>
+						</div>
+						<div class="col-md-3">
+							<label for="validationCustom05" class="form-label">Zip</label>
+							<input type="text" class="form-control" name="txtZip" id="txtZip" required>
+							<div class="invalid-feedback">
+								Please provide a valid zip.
+							</div>
+						</div>
+						<div class="col-5">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+								<label class="form-check-label" for="invalidCheck">
+									Agree to terms and conditions
+								</label>
+								<div class="invalid-feedback">
+									You must agree before submitting.
+								</div>
+							</div>
+						</div>
+						<div class="col-12">
+							<button class="btn btn-primary" type="submit">Submit form</button>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/login.js" asp-append-version="true"></script>
+</body>
+</html>
