@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4TZgxEexk9pxIivwIjTxIwoTrpFplKuVTCzgDs99f5E=",
+  "Hash": "g2yU7XchAJ2GNyNb0JKDzSs9MRUtNJkz20uzP0gJ5Fs=",
   "Source": "WebFinal",
   "BasePath": "_content/WebFinal",
   "Mode": "Default",
@@ -117,6 +117,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\logo.png"
+    },
+    {
+      "Identity": "D:\\Final\\WebFinal\\wwwroot\\img\\logohutech.png",
+      "SourceId": "WebFinal",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Final\\WebFinal\\wwwroot\\",
+      "BasePath": "_content/WebFinal",
+      "RelativePath": "img/logohutech.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\logohutech.png"
     },
     {
       "Identity": "D:\\Final\\WebFinal\\wwwroot\\js\\site.js",

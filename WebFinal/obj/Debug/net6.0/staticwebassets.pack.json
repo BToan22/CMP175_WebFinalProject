@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\img\\logo.png"
     },
     {
+      "Id": "D:\\Final\\WebFinal\\wwwroot\\img\\logohutech.png",
+      "PackagePath": "staticwebassets\\img\\logohutech.png"
+    },
+    {
       "Id": "D:\\Final\\WebFinal\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

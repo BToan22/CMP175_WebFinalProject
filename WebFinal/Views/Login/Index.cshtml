@@ -9,16 +9,16 @@
 
 	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
-	<style>
-
-	</style>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+		  integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
+		  crossorigin="anonymous">
 
 </head>
-<body class="text-center bg-dark">
-	<img id="logo" class="mb-4" src="~/img/logo.png" alt="" width="auto" height="auto">
+@*<body class="text-center bg-dark">
+
 	<main class="form-signin ">
 		<form>
-			
+			<img id="logo" class="mb-4" src="~/img/logo.png" alt="" width="auto" height="auto">
 			<h1 class="h3 mb-3 fw-normal text-light">Please sign in</h1>
 
 			<div class="form-floating ">
@@ -42,7 +42,7 @@
 				Register
 			</button>
 
-			<p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+			<p class="mt-5 mb-3 text-muted">&copy; 2023</p>
 		</form>
 	</main>
 	<div id="modalRegister" class="modal fade" tabindex="-1">
@@ -96,10 +96,10 @@
 							<label for="validationCustom04" class="form-label">State</label>
 							<select class="form-select" name="selState" id="selState" required>
 								<option selected disabled value="">Choose...</option>
-								@*@foreach (var p in Model)
+								@foreach (var p in Model)
 								{
 									<option value="@p.Id">@p.Province1</option>
-								}*@
+								}
 
 
 							</select>
@@ -139,5 +139,48 @@
 	<script src="~/lib/jquery/dist/jquery.min.js"></script>
 	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="~/js/login.js" asp-append-version="true"></script>
+</body>*@
+<body>
+	<div class="container h-100">
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_card">
+				<div class="d-flex justify-content-center">
+					<div class="brand_logo_container">
+						<img src="~/img/logohutech.png" class="brand_logo" alt="Logo">
+					</div>
+				</div>
+				<div class="d-flex justify-content-center form_container">
+					<form>
+						<div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+							<input type="text" name="" class="form-control input_user" value="" placeholder="username">
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							<input type="password" name="" class="form-control input_pass" value="" placeholder="password">
+						</div>
+						<div class="form-group">
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input" id="customControlInline">
+								<label class="custom-control-label" for="customControlInline">Remember me</label>
+							</div>
+						</div>
+						<div class="d-flex justify-content-center mt-3 login_container">
+							<button type="button" name="button" class="btn login_btn">Login</button>
+						</div>
+						<div class="d-flex justify-content-center mt-3 login_container">
+							<button type="button" name="button" class="btn login_btn">Register</button>
+						</div>
+					</form>
+				</div>
+
+				
+			</div>
+		</div>
+	</div>
 </body>
 </html>
