@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {}
+    "C:\\Users\\HP 9480m\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Github\\CMP175_WebFinalProject\\WebFinal\\WebFinal.csproj",
+      "projectUniqueName": "D:\\Final\\CMP175_WebFinalProject\\WebFinal\\WebFinal.csproj",
       "projectName": "WebFinal",
-      "projectPath": "F:\\Github\\CMP175_WebFinalProject\\WebFinal\\WebFinal.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "F:\\Github\\CMP175_WebFinalProject\\WebFinal\\obj\\",
+      "projectPath": "D:\\Final\\CMP175_WebFinalProject\\WebFinal\\WebFinal.csproj",
+      "packagesPath": "C:\\Users\\HP 9480m\\.nuget\\packages\\",
+      "outputPath": "D:\\Final\\CMP175_WebFinalProject\\WebFinal\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\HP 9480m\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
