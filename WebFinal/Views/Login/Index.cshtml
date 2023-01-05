@@ -11,6 +11,11 @@
 	<link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
 </head>
 <body>
+	<script>
+		function register() {
+			location.assign("Register/Index");
+		}
+	</script>
 	<section class="h-100 gradient-form" style="background-color: #eee;">
 		<div class="container py-5 h-100">
 			<div class="row d-flex justify-content-center align-items-center h-100">
@@ -52,7 +57,7 @@
 										<div class="d-flex align-items-center justify-content-center pb-4">
 											<p class="mb-0 me-2">Don't have an account?</p>
 											<button type="button" class="btn btn-outline-danger"
-													data-bs-toggle="modal" data-bs-target="#modalRegister">
+													onclick="register()">
 												Create new
 											</button>
 										</div>
@@ -73,7 +78,7 @@
 			</div>
 		</div>
 	</section>
-	<div id="modalRegister" class="modal fade" tabindex="-1">
+	@*<div id="modalRegister" class="modal fade" tabindex="-1">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -124,10 +129,10 @@
 							<label for="validationCustom04" class="form-label">State</label>
 							<select class="form-select" name="selState" id="selState" required>
 								<option selected disabled value="">Choose...</option>
-								@*@foreach (var p in Model)
+								@foreach (var p in Model)
 								{
 								<option value="@p.Id">@p.Province1</option>
-								}*@
+								}
 
 
 							</select>
@@ -163,7 +168,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div>*@
 	<script src="~/lib/jquery/dist/jquery.min.js"></script>
 	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="~/js/login.js" asp-append-version="true"></script>
