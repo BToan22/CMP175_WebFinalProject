@@ -15,25 +15,33 @@ namespace WebFinal.Controllers
 
 		public IActionResult Index()
 		{
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString("UserName")))
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("Username")))
                 return Redirect("login");
             else
             {
                 var model = new
                 {
-                    username = HttpContext.Session.GetString("UserName"),
-                    fullname = HttpContext.Session.GetString("FullName")
+                    username = HttpContext.Session.GetString("Username"),
+                    fullname = HttpContext.Session.GetString("Fullname")
                 };
                 return View(model);
             }
         }
 
-		public IActionResult Privacy()
-		{
-			return View();
-		}
-
-		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+		
+        public IActionResult Student()
+        {
+            return View();
+        }
+        public IActionResult Subjects()
+        {
+            return View();
+        }
+        public IActionResult Lecturer()
+        {
+            return View();
+        }
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()
 		{
 			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

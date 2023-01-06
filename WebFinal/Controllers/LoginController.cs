@@ -21,7 +21,7 @@ namespace WebFinal.Controllers
             if (string.IsNullOrEmpty(HttpContext.Session.GetString("Username")))
             {
                 var model = GetProvinces();
-               
+                
 
                 return View(model);
             }
@@ -35,7 +35,7 @@ namespace WebFinal.Controllers
         [HttpPost]
         public IActionResult Register(IFormCollection f)
         {
-            var db = new WebFinalContext();
+            
             
             User u = new User();
             u.Fullname = f["txtFullName"].ToString();
@@ -224,13 +224,13 @@ namespace WebFinal.Controllers
                     u.Password = hashPass;
                     db.Users.Add(u);
                     db.SaveChanges();
-                    
+                    var t = GetProvinceID(u.City);
                     return new
                     {
                         success = true,
                         message = "Create User Success !!!",
-                        data = u
-                        
+                        data = u,
+                        province = t
                     };
                 }
             }
@@ -248,6 +248,13 @@ namespace WebFinal.Controllers
         {
             var db = new WebFinalContext();
             var res = db.Provinces.ToList();
+            return res;
+        }
+        private Province GetProvinceID(String Id)
+        {
+            int id = int.Parse(Id);
+            var db = new WebFinalContext();
+            var res = db.Provinces.Where(x => x.Id == id).FirstOrDefault();
             return res;
         }
     }
