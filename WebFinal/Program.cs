@@ -2,7 +2,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddSession(options =>
+{
+    options.Cookie.Name = "Hutech.Session";
+    options.IdleTimeout = TimeSpan.FromSeconds(3600);
+    options.Cookie.IsEssential = true;
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -19,11 +24,11 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-
+app.UseSession();
 
 app.MapControllerRoute(
 	name: "default",
-	pattern: "{controller=Login}/{action=Index}");
+	pattern: "{controller=Login}/{action=Index}/{id?}");
 app.MapControllerRoute(
 	name: "Home",
 	pattern: "{controller=Home}/{action=Index}/{id?}");

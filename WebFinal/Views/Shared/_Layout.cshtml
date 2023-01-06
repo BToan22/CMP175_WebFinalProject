@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var js = "";
+    if (ViewData["js"] != null)
+        js = ViewData["js"].ToString();
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -33,21 +38,24 @@
                         </li>
                     </ul>
                 </div>
-                <div class="dropdown">
-                    <button class="btn btn-light dropdown-toggle " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                       @* @Model.fullname*@ Hihi
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li>
-                            <a class="dropdown-item" href="javascript:void(0);"
-                               data-bs-toggle="modal" data-bs-target="#modalChangePass">
-                                Change Pass
-                            </a>
-                        </li>
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                        <li><a class="dropdown-item" href="javascript:void(0);" onclick="signOut()">Sign out</a></li>
-                    </ul>
-                </div>
+                @if(Model != null){
+                
+                    <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            @Model.fullname
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li>
+                                <a class="dropdown-item" href="javascript:void(0);"
+                                   data-bs-toggle="modal" data-bs-target="#modalChangePass">
+                                    Change Pass
+                                </a>
+                            </li>
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="javascript:void(0);" onclick="signOut()">Sign out</a></li>
+                        </ul>
+                    </div>
+                }
             </div>
         </nav>
     </header>

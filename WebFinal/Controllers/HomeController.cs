@@ -15,8 +15,18 @@ namespace WebFinal.Controllers
 
 		public IActionResult Index()
 		{
-			return View();
-		}
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("UserName")))
+                return Redirect("login");
+            else
+            {
+                var model = new
+                {
+                    username = HttpContext.Session.GetString("UserName"),
+                    fullname = HttpContext.Session.GetString("FullName")
+                };
+                return View(model);
+            }
+        }
 
 		public IActionResult Privacy()
 		{
