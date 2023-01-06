@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vio/qnO8K+edKtdO3zYkz6vUB9ASJWnj54GRisIcMME=",
+  "Hash": "32S69v12WN1f60BA+qdRv8+bjFLYYCX/QNI8QdMpM8I=",
   "Source": "WebFinal",
   "BasePath": "_content/WebFinal",
   "Mode": "Default",
@@ -151,6 +151,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\logohutech.png"
+    },
+    {
+      "Identity": "F:\\Github\\CMP175_WebFinalProject\\WebFinal\\wwwroot\\js\\home.js",
+      "SourceId": "WebFinal",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\Github\\CMP175_WebFinalProject\\WebFinal\\wwwroot\\",
+      "BasePath": "_content/WebFinal",
+      "RelativePath": "js/home.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\home.js"
     },
     {
       "Identity": "F:\\Github\\CMP175_WebFinalProject\\WebFinal\\wwwroot\\js\\login.js",

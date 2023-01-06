@@ -21,15 +21,11 @@ namespace WebFinal.Controllers
             if (string.IsNullOrEmpty(HttpContext.Session.GetString("Username")))
             {
                 var model = GetProvinces();
-                //var p = new Province();
-                //p.Id = 0;
-                //p.Province1 = "";
                 return View(model);
             }
             else
-            {
-                return Redirect("home");
-            }
+                return Redirect("Home");
+            
 
         }
 
@@ -189,7 +185,7 @@ namespace WebFinal.Controllers
         private object? GetProvinces()
         {
             var db = new WebFinalContext();
-            var res = db.Provinces.ToList();
+            var res = db.Province.ToList();
             return res;
         }
     }

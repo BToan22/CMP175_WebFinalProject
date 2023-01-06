@@ -17,7 +17,7 @@ public partial class WebFinalContext : DbContext
 
     public virtual DbSet<Lecturer> Lecturers { get; set; }
 
-    public virtual DbSet<Province> Provinces { get; set; }
+    public virtual DbSet<Province> Province { get; set; }
 
     public virtual DbSet<Student> Students { get; set; }
 
