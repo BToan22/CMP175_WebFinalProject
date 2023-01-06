@@ -1,12 +1,6 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "Z2TcOQvNCYE5Jn3DmGkLyK4cxvhXxznfDDSDKThyRH+M4doUg+JDnPW+SHgwbbTiodvXNlkSn3B0neZ1l+BCnQ==",
-  "success": true,
-  "projectFilePath": "F:\\Github\\CMP175_WebFinalProject\\WebFinal\\WebFinal.csproj",
-  "expectedPackageFiles": [],
-=======
-  "dgSpecHash": "1/QO8xk8Nu6mBKClqycY2RK7ntDlM4uKOsVLuMzG4WCoChUmUP2EYnSVgyhDZxZawqgVEWEEPmUUEC2+1U+F4Q==",
+  "dgSpecHash": "LW8P+7rQBrJb98sOz/6hUY/bg/7As5y+9kQYw8WFOsT6kUIvZHZIYyv/QFuJgQOU/xfsRZ3T2EHekV9XC+ayyg==",
   "success": true,
   "projectFilePath": "D:\\Final\\CMP175_WebFinalProject\\WebFinal\\WebFinal.csproj",
   "expectedPackageFiles": [
@@ -84,6 +78,5 @@
     "C:\\Users\\HP 9480m\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\HP 9480m\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512"
   ],
->>>>>>> dbd51aadc523a23787a99e731d142aab443d192f
   "logs": []
 }

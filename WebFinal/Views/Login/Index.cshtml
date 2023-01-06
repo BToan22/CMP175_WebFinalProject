@@ -9,13 +9,10 @@
 
 	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/css/register.css" asp-append-version="true" />
 </head>
 <body>
-	<script>
-		function register() {
-			location.assign("Register/Index");
-		}
-	</script>
+
 	<section class="h-100 gradient-form" style="background-color: #eee;">
 		<div class="container py-5 h-100">
 			<div class="row d-flex justify-content-center align-items-center h-100">
@@ -57,8 +54,9 @@
 										<div class="d-flex align-items-center justify-content-center pb-4">
 											<p class="mb-0 me-2">Don't have an account?</p>
 											<button type="button" class="btn btn-outline-danger"
+													data-bs-toggle="modal" data-bs-target="#modalRegister"
 													onclick="register()">
-												Create new
+												Create New
 											</button>
 										</div>
 
@@ -78,99 +76,138 @@
 			</div>
 		</div>
 	</section>
-	@*<div id="modalRegister" class="modal fade" tabindex="-1">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title">Create New User</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					<form action="/Login/Register" method="post" class="row g-3 needs-validation" novalidate>
-						<div class="col-md-4">
-							<label for="txtFullname" class="form-label">Full name</label>
-							<input type="text" class="form-control" name="txtFullname" id="txtFullname" value="" required>
-							<div class="valid-feedback">
-								Looks good!
-							</div>
-						</div>
-						<div class="col-md-4">
-							<label for="validationCustomUsername" class="form-label">User name</label>
-							<div class="input-group has-validation">
-								<span class="input-group-text" id="inputGroupPrepend">ID</span>
-								<input type="text" class="form-control" name="txtUsername1" id="txtUsername1" aria-describedby="inputGroupPrepend" required>
-								<div class="valid-feedback">
-									Looks good!
-								</div>
-								<div class="invalid-feedback">
-									Please choose a username.
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<label for="validationCustom02" class="form-label">Password</label>
-							<input type="password" class="form-control" name="txtPassword1" id="txtPassword1" required>
-							<div class="valid-feedback">
-								Looks good!
-							</div>
-							<div class="invalid-feedback">
-								Please insert password.
-							</div>
-						</div>
+	<div id="modalRegister" class="modal fade" tabindex="-1">
+		@*<section class="vh-100 bg-image"
+		style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+		<div class="mask d-flex align-items-center h-100 gradient-custom-3">
+		<div class="container h-100">
+		<div class="row d-flex justify-content-center align-items-center h-100">
+		<div class="col-12 col-md-9 col-lg-7 col-xl-6">
+		<div class="card" style="border-radius: 15px;">
+		<div class="card-body p-5">
+		<h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
-						<div class="col-md-6">
-							<label for="validationCustom03" class="form-label">City</label>
-							<input type="text" class="form-control" name="txtCity" id="txtCity" required>
-							<div class="invalid-feedback">
-								Please provide a valid city.
-							</div>
-						</div>
-						<div class="col-md-3">
-							<label for="validationCustom04" class="form-label">State</label>
-							<select class="form-select" name="selState" id="selState" required>
-								<option selected disabled value="">Choose...</option>
-								@foreach (var p in Model)
-								{
-								<option value="@p.Id">@p.Province1</option>
-								}
+		<form>
 
-
-							</select>
-							<div class="invalid-feedback">
-								Please select a valid state.
-							</div>
-						</div>
-						<div class="col-md-3">
-							<label for="validationCustom05" class="form-label">Zip</label>
-							<input type="text" class="form-control" name="txtZip" id="txtZip" required>
-							<div class="invalid-feedback">
-								Please provide a valid zip.
-							</div>
-						</div>
-						<div class="col-5">
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-								<label class="form-check-label" for="invalidCheck">
-									Agree to terms and conditions
-								</label>
-								<div class="invalid-feedback">
-									You must agree before submitting.
-								</div>
-							</div>
-						</div>
-						<div class="col-12">
-							<button class="btn btn-primary" type="submit">Submit form</button>
-						</div>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-				</div>
-			</div>
+		<div class="form-outline mb-4">
+		<input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+		<label class="form-label" for="form3Example1cg">Your Name</label>
 		</div>
-	</div>*@
-	<script src="~/lib/jquery/dist/jquery.min.js"></script>
-	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="~/js/login.js" asp-append-version="true"></script>
+
+		<div class="form-outline mb-4">
+		<input type="email" id="form3Example3cg" class="form-control form-control-lg" />
+		<label class="form-label" for="form3Example3cg">Your Email</label>
+		</div>
+
+		<div class="form-outline mb-4">
+		<input type="password" id="form3Example4cg" class="form-control form-control-lg" />
+		<label class="form-label" for="form3Example4cg">Password</label>
+		</div>
+
+		<div class="form-outline mb-4">
+		<input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
+		<label class="form-label" for="form3Example4cdg">Repeat your password</label>
+		</div>
+
+		<div class="form-check d-flex justify-content-center mb-5">
+		<input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
+		<label class="form-check-label" for="form2Example3g">
+		I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
+		</label>
+		</div>
+
+		<div class="d-flex justify-content-center">
+		<button type="button"
+		class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">
+		Register
+		</button>
+		</div>
+
+		<p class="text-center text-muted mt-5 mb-0">
+		Have already an account? <a href="#!"
+		class="fw-bold text-body"><u>Login here</u></a>
+		</p>
+
+		</form>
+
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
+		</section>*@
+		<div class="modal-dialog modal-lg ">
+			<div class="modal-content">
+				
+					<section class="vh-100 bg-image"
+							 style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+						<div class="mask d-flex align-items-center h-100 gradient-custom-3">
+							<div class="container h-100">
+								<div class="row d-flex justify-content-center align-items-center h-100">
+								<div class="col-12 col-md-9 col-lg-7 col-xl-6 ">
+										<div class="card" style="border-radius: 15px">										
+											<div class="card-body ">
+												<h2 class="text-uppercase text-center mb-2">Create an account</h2>
+													<div class="form-group mb-1 ">
+												<label class="form-label" for="form3Example1cg">Your Name</label>
+														<input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+														
+													</div>
+
+													<div class="form-group mb-1 ">
+												<label class="form-label" for="form3Example3cg">Your Email</label>
+														<input type="email" id="form3Example3cg" class="form-control form-control-lg" />
+														
+													</div>
+
+												<div class="form-group  mb-1 ">
+												<label class="form-label" for="form3Example4cg">Password</label>
+														<input type="password" id="form3Example4cg" class="form-control form-control-lg" />
+														
+													</div>
+
+												<div class="form-group mb-1 ">
+												<label class="form-label" for="form3Example4cdg">Repeat your password</label>
+														<input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
+														
+													</div>
+
+													<div class="form-check d-flex justify-content-center mb-1">
+														<input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
+														<label class="form-check-label" for="form2Example3g">
+															I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
+														</label>
+													</div>
+
+													<div class="d-flex justify-content-center">
+														<button type="button"
+																class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">
+															Register
+														</button>
+													</div>
+
+													<p class="text-center text-muted mt-2 mb-0">
+														Have already an account? <a href="#!"
+																					class="fw-bold text-body"><u>Login here</u></a>
+													</p>
+
+												
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+				
+			</div>
+
+		</div>
+
+		<script src="~/lib/jquery/dist/jquery.min.js"></script>
+		<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="~/js/login.js" asp-append-version="true"></script>
 </body>
 </html>
