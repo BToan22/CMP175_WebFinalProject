@@ -21,9 +21,8 @@ namespace WebFinal.Controllers
             if (string.IsNullOrEmpty(HttpContext.Session.GetString("Username")))
             {
                 var model = GetProvinces();
-                //var p = new Province();
-                //p.Id = 0;
-                //p.Province1 = "";
+               
+
                 return View(model);
             }
             else
@@ -31,6 +30,21 @@ namespace WebFinal.Controllers
                 return Redirect("home");
             }
 
+        }
+
+        [HttpPost]
+        public IActionResult Register(IFormCollection f)
+        {
+            var db = new WebFinalContext();
+            
+            User u = new User();
+            u.Fullname = f["txtFullName"].ToString();
+            u.Username = f["txtUserName1"].ToString();
+            u.Password = f["txtPassword1"].ToString();
+            u.City = f["selCity"];
+            var obj = CreateUser(u);
+
+            return View(obj);
         }
 
         [HttpPost]
@@ -76,6 +90,7 @@ namespace WebFinal.Controllers
             return Json(res);
         }
 
+        
         public Users? checkLogin(LoginData login)
         {
             Users? usr = new Users();
@@ -89,7 +104,7 @@ namespace WebFinal.Controllers
                     SqlCommand cmd = cmn.CreateCommand();
                     cmd.Connection = cmn;
 
-                    string sql = "Select * from Users";
+                    string sql = "Select* from Users";
                     sql += " where Username='" + login.Username + "' ";
                     //sql += " and [Password]='" + login.Password + "'";
 
@@ -186,6 +201,49 @@ namespace WebFinal.Controllers
             }
         }
 
+        
+
+        private object? CreateUser(User u)
+        {
+            try
+            {
+                var db = new WebFinalContext();
+                var usr = db.Users.Where(x => x.Username == u.Username).FirstOrDefault();
+                if (usr != null)
+                {
+                    return new
+                    {
+                        success = false,
+                        message = "User already exist !!!",
+                        data = ""
+                    };
+                }
+                else
+                {
+                    var hashPass = EncryptString(u.Password, _key);
+                    u.Password = hashPass;
+                    db.Users.Add(u);
+                    db.SaveChanges();
+                    
+                    return new
+                    {
+                        success = true,
+                        message = "Create User Success !!!",
+                        data = u
+                        
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                return new
+                {
+                    success = false,
+                    message = ex.Message
+                };
+            }
+        }
+        
         private object? GetProvinces()
         {
             var db = new WebFinalContext();

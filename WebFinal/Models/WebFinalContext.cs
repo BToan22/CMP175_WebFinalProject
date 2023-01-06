@@ -46,9 +46,7 @@ public partial class WebFinalContext : DbContext
 
         modelBuilder.Entity<Province>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("Province");
+            entity.HasNoKey();
 
             entity.Property(e => e.HeadCity).HasMaxLength(255);
             entity.Property(e => e.Id).HasColumnName("ID");

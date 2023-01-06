@@ -1,0 +1,37 @@
+﻿@{
+	Layout = null;
+	var usr = new User();
+	try
+	{
+		usr = (WebFinal.Models.User)Model.data;
+	}
+	catch (Exception ex)
+	{
+		usr = null;
+	}
+
+
+	@if (Model.success)
+	{
+		<div>
+					<h1>Successfully registered new User !!!</h1>
+					<p>
+						Welcome,<strong>@usr.Fullname</strong> !! <br/>
+						-moz-column-rule-style ID = @usr.Id.ToString() !! <br/>
+						Your UserName = @usr.Username !! <br/>
+						Your Password = @usr.Password !! <br/>
+						Your City = @Model.province.Province1  !! <br/>
+					</p>
+					<p>
+						Go back to <a href = "@Url.Action("Index","Login")">Home Page</a> to Login!!!
+					</p>
+		</div>
+	}
+	else
+	{
+		<div>
+					<h2 style="coler:red;">Error !!!</h2>
+					<p style = "color:red;font-style:italic;">@Model.message</p>
+		</div>
+	}
+}
