@@ -18,13 +18,14 @@ namespace WebFinal.Controllers
         }
         public IActionResult Index()
         {
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString("Username")))
+            /*if (string.IsNullOrEmpty(HttpContext.Session.GetString("Username")))
             {
                 var model = GetProvinces();
                 return View(model);
             }
             else
-                return Redirect("Home");
+                return Redirect("Home");*/
+            return View();
             
 
         }
@@ -182,12 +183,12 @@ namespace WebFinal.Controllers
             }
         }
 
-        private object? GetProvinces()
+        /*private object? GetProvinces()
         {
             var db = new WebFinalContext();
             var res = db.Province.ToList();
             return res;
-        }
+        }*/
     }
 
 

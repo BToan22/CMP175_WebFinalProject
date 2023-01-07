@@ -15,7 +15,7 @@ namespace WebFinal.Controllers
 
 		public IActionResult Index()
 		{
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString("Username")))
+            /*if (string.IsNullOrEmpty(HttpContext.Session.GetString("Username")))
                 return Redirect("Login");
             else
             {
@@ -25,7 +25,8 @@ namespace WebFinal.Controllers
                     fullname = HttpContext.Session.GetString("Fullname")
                 };
                 return View(model);
-            }
+            }*/
+            return View();
         }
 
 		public IActionResult Student()
