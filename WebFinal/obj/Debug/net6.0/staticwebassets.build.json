@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vkBwoHUCGYLLN3ehCM5eJ/W41n3P6+EelDXAwqjjvnA=",
+  "Hash": "uAZwShUKQCEan0a9TiRLmHurFc61I0KR0+MUyn5IPeA=",
   "Source": "WebFinal",
   "BasePath": "_content/WebFinal",
   "Mode": "Default",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "D:\\WebFinal\\CMP175_WebFinalProject\\WebFinal\\wwwroot\\css\\styles.css",
+      "SourceId": "WebFinal",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\WebFinal\\CMP175_WebFinalProject\\WebFinal\\wwwroot\\",
+      "BasePath": "_content/WebFinal",
+      "RelativePath": "css/styles.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\styles.css"
     },
     {
       "Identity": "D:\\WebFinal\\CMP175_WebFinalProject\\WebFinal\\wwwroot\\favicon.ico",

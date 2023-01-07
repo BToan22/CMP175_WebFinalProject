@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "D:\\WebFinal\\CMP175_WebFinalProject\\WebFinal\\wwwroot\\css\\styles.css",
+      "PackagePath": "staticwebassets\\css\\styles.css"
+    },
+    {
       "Id": "D:\\WebFinal\\CMP175_WebFinalProject\\WebFinal\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
