@@ -5,61 +5,60 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
-build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WebFinal
 build_property.RootNamespace = WebFinal
-build_property.ProjectDir = D:\WebFinal\CMP175_WebFinalProject\WebFinal\
+build_property.ProjectDir = F:\Github\CMP175_WebFinalProject\WebFinal\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\WebFinal\CMP175_WebFinalProject\WebFinal
+build_property.MSBuildProjectDirectory = F:\Github\CMP175_WebFinalProject\WebFinal
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/WebFinal/CMP175_WebFinalProject/WebFinal/Views/Home/Index.cshtml]
+[F:/Github/CMP175_WebFinalProject/WebFinal/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/WebFinal/CMP175_WebFinalProject/WebFinal/Views/Home/Lecturer.cshtml]
+[F:/Github/CMP175_WebFinalProject/WebFinal/Views/Home/Lecturer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMZWN0dXJlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/WebFinal/CMP175_WebFinalProject/WebFinal/Views/Home/Privacy.cshtml]
+[F:/Github/CMP175_WebFinalProject/WebFinal/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/WebFinal/CMP175_WebFinalProject/WebFinal/Views/Home/Student.cshtml]
+[F:/Github/CMP175_WebFinalProject/WebFinal/Views/Home/Student.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTdHVkZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/WebFinal/CMP175_WebFinalProject/WebFinal/Views/Home/Subjects.cshtml]
+[F:/Github/CMP175_WebFinalProject/WebFinal/Views/Home/Subjects.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTdWJqZWN0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/WebFinal/CMP175_WebFinalProject/WebFinal/Views/Login/Index.cshtml]
+[F:/Github/CMP175_WebFinalProject/WebFinal/Views/Login/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/WebFinal/CMP175_WebFinalProject/WebFinal/Views/Login/Register.cshtml]
+[F:/Github/CMP175_WebFinalProject/WebFinal/Views/Login/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/WebFinal/CMP175_WebFinalProject/WebFinal/Views/Shared/Error.cshtml]
+[F:/Github/CMP175_WebFinalProject/WebFinal/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/WebFinal/CMP175_WebFinalProject/WebFinal/Views/Shared/_ValidationScriptsPartial.cshtml]
+[F:/Github/CMP175_WebFinalProject/WebFinal/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/WebFinal/CMP175_WebFinalProject/WebFinal/Views/_ViewImports.cshtml]
+[F:/Github/CMP175_WebFinalProject/WebFinal/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/WebFinal/CMP175_WebFinalProject/WebFinal/Views/_ViewStart.cshtml]
+[F:/Github/CMP175_WebFinalProject/WebFinal/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/WebFinal/CMP175_WebFinalProject/WebFinal/Views/Shared/_Layout.cshtml]
+[F:/Github/CMP175_WebFinalProject/WebFinal/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-jlfx8ccn7c

@@ -58,8 +58,8 @@ namespace WebFinal.Controllers
 				if (usr != null)
 				{
 					//var passHash = EncryptString(login.Password, _key);
-					//var decryptedPass = DecryptString(usr.Password, _key);
-					var decryptedPass = usr.Password;
+					var decryptedPass = DecryptString(usr.Password, _key);
+					
 					if (decryptedPass == login.Password)
 					{
 						res.Message = "Đăng nhập thành công !!";
