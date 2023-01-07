@@ -41,10 +41,6 @@
       "PackagePath": "staticwebassets\\js\\login.js"
     },
     {
-      "Id": "D:\\WebFinal\\CMP175_WebFinalProject\\WebFinal\\wwwroot\\js\\scripts.js",
-      "PackagePath": "staticwebassets\\js\\scripts.js"
-    },
-    {
       "Id": "D:\\WebFinal\\CMP175_WebFinalProject\\WebFinal\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

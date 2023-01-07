@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "G4hXyPqa2+nHtV0dkyDfAGozLIB83B3khDJ/4X4E/ks=",
+  "Hash": "uAZwShUKQCEan0a9TiRLmHurFc61I0KR0+MUyn5IPeA=",
   "Source": "WebFinal",
   "BasePath": "_content/WebFinal",
   "Mode": "Default",
@@ -202,23 +202,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\login.js"
-    },
-    {
-      "Identity": "D:\\WebFinal\\CMP175_WebFinalProject\\WebFinal\\wwwroot\\js\\scripts.js",
-      "SourceId": "WebFinal",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\WebFinal\\CMP175_WebFinalProject\\WebFinal\\wwwroot\\",
-      "BasePath": "_content/WebFinal",
-      "RelativePath": "js/scripts.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\scripts.js"
     },
     {
       "Identity": "D:\\WebFinal\\CMP175_WebFinalProject\\WebFinal\\wwwroot\\js\\site.js",

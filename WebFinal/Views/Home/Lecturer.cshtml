@@ -1,9 +1,8 @@
 ﻿@{
 	ViewData["Title"] = "Lecturer Page";
-	ViewData["js"] = "home";
+	ViewData["js"] = "home.js";
+
 }
-
-
 <div id="layoutSidenav_content">
 	
 	<main>
@@ -15,15 +14,22 @@
 				<li class="breadcrumb-item active">Lecturer</li>
 			</ol>
 			<div class="card mb-4">
+				<div class="col-4">
+					<button data-bs-toggle="modal" data-bs-target="#modal"
+							onclick="addNew()" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 ">
+						Add new Lecturer
+					</button>
+				</div>
 				<div class="card-header">
 					<i class="fas fa-table me-1"></i>
 					List of Lecturer 
-					<div class="d-md-inline-block form-inline me-0 me-md-3 my-2 my-md-0 align-content-center">
+					<div class="d-md-inline-block form-inline me-0 me-md-3 my-2 my-md-0 col-4">
 						<div class="input-group">
 							<input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
 							<button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
 						</div>
 					</div>
+					
 				</div>
 				<div class="card-body">
 					<table id="datatablesSimple" class="table" >
