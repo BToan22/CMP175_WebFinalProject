@@ -12,6 +12,4 @@ public partial class Subject
     public string? SubjectName { get; set; }
 
     public byte? Credits { get; set; }
-
-    public string? Major { get; set; }
 }

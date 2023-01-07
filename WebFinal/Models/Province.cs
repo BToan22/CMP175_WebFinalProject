@@ -5,7 +5,7 @@ namespace WebFinal.Models;
 
 public partial class Province
 {
-    public double? Id { get; set; }
+    public double Id { get; set; }
 
     public string? Province1 { get; set; }
 

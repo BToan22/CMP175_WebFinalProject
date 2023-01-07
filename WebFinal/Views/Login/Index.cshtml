@@ -13,7 +13,7 @@
 </head>
 <body>
 
-	<section  id="modalLogin"class="h-100 gradient-form" style="background-color: #eee;">
+	<section id="modalLogin" class="h-100 gradient-form" style="background-color: #eee;">
 		<div class="container py-5 h-100">
 			<div class="row d-flex justify-content-center align-items-center h-100">
 				<div class="col-xl-10">
@@ -55,7 +55,7 @@
 											<p class="mb-0 me-2">Don't have an account?</p>
 											<button type="button" class="btn btn-outline-danger"
 													data-bs-toggle="modal" data-bs-target="#modalRegister"
-													onclick="register()">
+													>
 												Create New
 											</button>
 										</div>
@@ -139,10 +139,10 @@
 		</section>*@
 		<div class="modal-dialog modal-lg ">
 			<div class="modal-content">
-				
+
 				<section class="vh-100 bg-image"
 						 style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
-					
+
 					<div class="mask d-flex align-items-center h-100 gradient-custom-3">
 						<div class="container h-100">
 							<div class="row d-flex justify-content-center align-items-center h-100">
@@ -151,60 +151,66 @@
 										<div class="card-body ">
 											<h2 class="text-uppercase text-center mb-2">Create an account</h2>
 											<div class="form-group mb-1 ">
-												<label class="form-label" for="form3Example1cg">Your Full Name</label>
-												<input type="text" id="form3Example1cg" class="form-control " />
-
+												<label class="form-label" for="txtFullname">Your Name</label>
+												<input type="text" id="txtFullname"
+													   class="form-control " name="txtFullname" required />
 											</div>
 
 											<div class="form-group mb-1 ">
-												<label class="form-label" for="form3Example3cg">User Name</label>
-												<input type="email" id="form3Example3cg" class="form-control " />
+												<label class="form-label" for="txtUsername1">Your User Name</label>
+												<input type="text" id="txtUsername1"
+													   class="form-control " name="txtUsername1" required />
 
 											</div>
 
 											<div class="form-group  mb-1 ">
-												<label class="form-label" for="form3Example4cg">Password</label>
-												<input type="password" id="form3Example4cg" class="form-control " />
+												<label class="form-label" for="txtPassword1">Password</label>
+												<input type="password" id="txtPassword1"
+													   class="form-control " name="txtPassword1" required />
 
 											</div>
 
 											<div class="form-group mb-1 ">
-												<label class="form-label" for="form3Example4cdg">Repeat your password</label>
-												<input type="password" id="form3Example4cdg" class="form-control " />
-
-											</div>
-											<div class="form-group mb-1 ">
-												<label class="form-label" for="form3Example4cdg">State</label>
-												<select class="form-select" name="selState" id="selState" required>
+												<label for="selCity" class="form-label">City</label>
+												<select class="form-select" name="selCity" id="selCity" required>
 													<option selected disabled value="">Choose...</option>
-													@*@foreach (var p in Model)
+													@foreach (var p in Model)
 													{
 														<option value="@p.Id">@p.Province1</option>
-													}*@
-												</select>
+													}
 
+
+												</select>
+												<div class="invalid-feedback">
+													Please select a valid City.
+												</div>
 											</div>
 
 											<div class="form-check d-flex justify-content-center mb-1">
-												<input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
-												<label class="form-check-label" for="form2Example3g">
-													I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
+												<input class="form-check-input me-2" type="checkbox" value=""
+													   id="invalidCheck" required />
+												<label class="form-check-label" for="invalidCheck">
+													I agree all statements in <a href="#!" class="text-body">
+														<u>
+															Terms of
+															service
+														</u>
+													</a>
 												</label>
+
 											</div>
 
 											<div class="d-flex justify-content-center">
-												<button type="button"
-														class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">
+												<button type="submit"
+														class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" ">
 													Register
 												</button>
 											</div>
 
 											<p class="text-center text-muted mt-2 mb-0">
-												Have already an account? <a href="https://localhost:7231/"
-																			class="fw-bold text-body " ><u>Login here</u></a>
+												Have already an account? <a href="/Login"
+																			class="fw-bold text-body "><u>Login here</u></a>
 											</p>
-
-
 
 										</div>
 									</div>

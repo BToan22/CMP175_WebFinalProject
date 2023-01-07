@@ -1,4 +1,22 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿function signOut() {
+    if (confirm("Bạn có chắc kèo là thoát chưa ?????") == true) {
+        $.ajax({
+            type: "POST",
+            url: "/Login/signOut",
+            async: false,
+            success: function (res) {
+                if (res.success) {
+                    document.location.href = "/";
+                } else {
+                    alert(res.message);
+                }
+            },
+            failure: function (res) {
 
-// Write your JavaScript code.
+            },
+            error: function (res) {
+
+            }
+        });
+    }
+}
