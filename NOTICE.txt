@@ -1,5 +1,6 @@
 thêm sửa xóa lọc ds môn đã xong
 chỉnh lại layout form edit của môn giùm t
 t dậy làm nốt student với lec sau
+database có thay đổi nhỏ ở tên db subject thêm s vào thành subjects
 
 nếu m thắc mắc sao chậm vậy thì...do gặp tính năng lạ 🐧
