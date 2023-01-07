@@ -2,6 +2,7 @@
 var lst = null;
 function selectClass(ctl) {
     let lop = $(ctl).val();
+    
     if (lop != "0" && lop != undefined && lop != null) {
         getCourse(lop, 1);
         $("#tblResult").show(500);
@@ -10,11 +11,11 @@ function selectClass(ctl) {
     }
 }
 
-function getCourse(grp, p) {
+function getCourse(mj, p) {
     $.ajax({
         type: "POST",
         url: "/Home/get_course",
-        data: { 'Group': grp, 'Page': p, 'Size': 5 },
+        data: { 'Major': mj, 'Page': p, 'Size': 5 },
         async: false,
         success: function (res) {
             if (res.success) {
@@ -78,32 +79,29 @@ function openModal(id) {
         var item = $.grep(lst, function (obj) {
             return obj.id == id;
         })[0];
-
         $("#txtId").val(item.id);
-        $("#txtName").val(item.courseName);
-        $("#txtGroup").val(item.group);
-        $("#txtCredit").val(item.credit);
-        $("#txtCode").val(item.subCode);
+        $("#txtSubId").val(item.subjectId);
+        $("#txtName").val(item.subjectName);      
+        $("#txtCredit").val(item.credits);
         $("#txtMajor").val(item.major);
-        $("#txtNote").val(item.note);
+       
     }
 }
 
 function save() {
     var item = {
         id: $("#txtId").val(),
-        courseName: $("#txtName").val(),
-        group: $("#txtGroup").val(),
-        credit: $("#txtCredit").val(),
-        subCode: $("#txtCode").val(),
+        subjectId: $("#txtSubId").val(),
+        subjectName: $("#txtName").val(),
+        credits: $("#txtCredit").val(),   
         major: $("#txtMajor").val(),
-        note: $("#txtNote").val(),
+        
     };
-
+    console.log(item);
     $.ajax({
         type: "POST",
         url: "/Home/update_course",
-        data: { 'course': item },
+        data: { 'Subject': item },
         async: false,
         success: function (res) {
             if (res.success) {
@@ -135,29 +133,26 @@ function addNew() {
     $("#btnSave").hide();
     $("btnInsert").show();
     $("#txtId").val("");
+    $("#txtSubId").val("");
     $("#txtName").val("");
-    $("#txtGroup").val($("#selClass").val());
+    $("#txtMajor").val($("#selClass").val());
     $("#txtCredit").val("");
-    $("#txtCode").val("");
-    $("#txtMajor").val("");
-    $("#txtNote").val("");
+   
 }
 
 function insert() {
     var item = {
         id: 0,
-        courseName: $("#txtName").val(),
-        group: $("#txtGroup").val(),
-        credit: $("#txtCredit").val(),
-        subCode: $("#txtCode").val(),
+        subjectName: $("#txtName").val(), 
+        credits: $("#txtCredit").val(),
+        subjectId: $("#txtSubId").val(),
         major: $("#txtMajor").val(),
-        note: $("#txtNote").val(),
     };
 
     $.ajax({
         type: "POST",
         url: "/Home/insert_course",
-        data: { 'course': item },
+        data: { 'Subject': item },
         async: false,
         success: function (res) {
             if (res.success) {
