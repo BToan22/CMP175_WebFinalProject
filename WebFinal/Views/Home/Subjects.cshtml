@@ -2,95 +2,90 @@
 	ViewData["Title"] = "Subject Page";
 	ViewData["js"] = "home.js";
 }
-
-<div id="layoutSidenav_content">
-
-	<main>
-		<div class="container-fluid px-4">
-			<h1 class="mt-4">Subject</h1>
-			<ol class="breadcrumb mb-4">
-				<li class="breadcrumb-item"><a href="/Home">Home</a></li>
-				<li class="breadcrumb-item active">Manage</li>
-				<li class="breadcrumb-item active">Subjects</li>
-			</ol>
-			<div class="card mb-4">
-				<div class="row">
-					<div class="col-5">
-						<div class="mb-2">
-							<label class="form-label">Select your Major:</label>
-							<select id="selClass" class="form-select" onchange="selectClass(this)">
-								<option value="0" selected>--- Please select Major ---</option>
-								<option value="Information Technology">Information Technology</option>
-								<option value="Economic">Economic</option>
-								<option value="Law">Law</option>
-							</select>
+<body>
+	<div id="layoutSidenav_content">
+		<main>
+			<div class="container-fluid px-4">
+				<h1 class="mt-4">Subject</h1>
+				<ol class="breadcrumb mb-4">
+					<li class="breadcrumb-item"><a href="/Home">Home</a></li>
+					<li class="breadcrumb-item active">Manage</li>
+					<li class="breadcrumb-item active">Subjects</li>
+				</ol>
+				<div class="card mb-4">
+					<div class="row">
+						<div class="mb-3 row">
+							<label class="form-label col-sm-2 align-content-lg-between">Select your Major:</label>
+							<div class="col-sm-3">
+								<select id="selClass" class="form-select " onchange="selectClass(this)">
+									<option value="" selected>--- Please select Major ---</option>
+									<option value="Information Technology">Information Technology</option>
+									<option value="Economic">Economic</option>
+									<option value="Law">Law</option>
+								</select>
+							</div>
+							<div class="d-md-inline-block form-inline me-0 me-md-3 my-2 my-md-0 col-sm-3">
+								<div class="input-group">
+									<input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+									<button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<button data-bs-toggle="modal" data-bs-target="#modal"
+										onclick="addNew()" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 ">
+									Add new Subjects
+								</button>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-4">
-						<button data-bs-toggle="modal" data-bs-target="#modal"
-								onclick="addNew()" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 ">
-							Add new Subjects
-						</button>
-				</div>
-
-				<div class="card-header">
-					<i class="fas fa-table me-1"></i>
-					List of Subject
-					<div class="d-md-inline-block form-inline me-0 me-md-3 my-2 my-md-0 col-4">
-						<div class="input-group">
-							<input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-							<button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
-						</div>
+					<div class="card-header">
+						<i class="fas fa-table me-1"></i>
+						List of Subject
 					</div>
-				</div>
+					<div>
+						<table id="tblResult" class="table">
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>ID</th>
+									<th>Name</th>
+									<th>Credit</th>
+									<th>Major</th>
 
-				<div>
-					<table id="tblResult" class="table">
-						<thead>
-							<tr>
-								<th>#</th>
-								<th>ID</th>
-								<th>Name</th>
-								<th>Credit</th>
-								<th>Major</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+									<td> </td>
 
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>1</td>
-								<td>COCC</td>
-								<td>Math</td>
-								<td>3</td>
-								<td>IT</td>
+									<td> </td>
+								</tr>
+							</tbody>
+						</table>
+						<nav aria-label="Page navigation example">
+							<ul class="pagination">
+								<li class="page-item"><a class="page-link" onclick="goPrev()" href="javascript:void(0)">Previous</a></li>
+								<li class="page-item">
+									<a class="page-link" href="#">
+										<span id="curPage">1</span>
+									</a>
+								</li>
+								<li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="goNext()">Next</a></li>
+							</ul>
+						</nav>
+					</div>
 
-								<td>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-					<nav aria-label="Page navigation example">
-						<ul class="pagination">
-							<li class="page-item"><a class="page-link" onclick="goPrev()" href="javascript:void(0)">Previous</a></li>
-							<li class="page-item">
-								<a class="page-link" href="#">
-									<span id="curPage">1</span>
-								</a>
-							</li>
-							
-							<li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="goNext()" >Next</a></li>
-						</ul>
-					</nav>
-				</div>
-
-				<script id="courseTemplate" type="text/x-jquery-tmpl">
+					<script id="courseTemplate" type="text/x-jquery-tmpl">
 						<tr>
 							<td>${STT}</td>
 							<td>${subjectID}</td>
 							<td>${subjectName}</td>
-							<td>${credits}</td>	
-							<td>${major}</td>	
+							<td>${credits}</td>
+							<td>${major}</td>
 							<td>
 								<button
 									class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
@@ -98,7 +93,7 @@
 									onclick="openModal(${id})">
 									Info
 								</button>
-								<button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
+								<button class="btn btn-danger btn-block fa-lg gradient-custom-2 mb-3"
 											type="button"
 											onclick="deleteCourse(${id})">
 										Delete
@@ -106,59 +101,55 @@
 							</td>
 						</tr>
 					</script>
-					<div id ="modal" class="modal fade" data-bs-backdrop = "static" tabindex="-1">
-  <div class="modal-dialog modal-lg">
-	<div class="modal-content">
-	  <div class="modal-header">
-		<h5 class="modal-title">Subject Detail</h5>
-		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-	  </div>
-	  <div class="modal-body">
+					<div id="modal" class="modal fade" data-bs-backdrop="static" tabindex="-1">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Subject Detail</h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
 
-			<div class="mb-3 row">
-				<label for="txtId" class="col-sm-2 col-form-label">ID</label>
-				<div class="col-sm-2">
-				  <input type="text" readonly class="form-control-plaintext" id="txtId" value="email@example.com">
-				</div>
-			<label for="txtId" class="col-sm-2 col-form-label">Subject ID</label>
-				<div class="col-sm-2">
-						<input type="text" class="form-control" id="txtSubId">
+									<div class="mb-3 row">
+										<label for="txtId" class="col-sm-2 col-form-label">ID</label>
+										<div class="col-sm-2">
+											<input type="text" readonly class="form-control-plaintext" id="txtId" value="email@example.com">
+										</div>
+										<label for="txtId" class="col-sm-2 col-form-label">Subject ID</label>
+										<div class="col-sm-2">
+											<input type="text" class="form-control" id="txtSubId">
+										</div>
+									</div>
+									<div class="mb-3 row">
+										<label for="txtName" class="col-sm-2 col-form-label">Subject Name</label>
+										<div class="col-sm-6">
+											<input type="text" class="form-control" id="txtName">
+										</div>
+									</div>
+									<div class="mb-3 row">
+										<label for="txtCredit" class="col-sm-2 col-form-label">Credit</label>
+										<div class="col-sm-2">
+											<input type="number" class="form-control" id="txtCredit">
+										</div>
+										<label for="txtMajor" class="col-sm-2 col-form-label">Major</label>
+										<div class="col-sm-4">
+											<input type="text" class="form-control" id="txtMajor">
+										</div>
+									</div>
+								</div>								
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+									<button id="btnSave" type="button" class="btn btn-primary" onclick="save()">Save changes</button>
+									<button id="btnInsert" type="button" class="btn btn-success"
+											data-bs-dismiss="modal" onclick="insert()">
+										Add
+									</button>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
-
-			<label for="txtName" class="col-sm-2 col-form-label">Subject Name</label>
-				<div class="col-sm-6">
-				  <input type="text" class="form-control" id="txtName">
-				</div>
 			</div>
-
-			<label for="txtCredit" class="col-sm-2 col-form-label">Credit</label>
-			<div class="col-sm-2">
-			  <input type="text" class="form-control" id="txtCredit">
-			</div>
-
-			
-
-		  <div class="mb-3 row">
-			<label for="txtMajor" class="col-sm-2 col-form-label">Major</label>
-			<div class="col-sm-4">
-			  <input type="text" class="form-control" id="txtMajor">
-			</div>
-
-		  
-	  </div>
-	  <div class="modal-footer">
-		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-		<button id = "btnSave" type="button" class="btn btn-primary" onclick = "save()">Save changes</button>
-		<button id = "btnInsert" type="button" class="btn btn-success"
-			data-bs-dismiss = "modal" onclick = "insert()">
-			Add
-		</button>
-
-	  </div>
+		</main>
 	</div>
-			</div>
-		</div>
-	</main>
-	
-</div>
+</body>
