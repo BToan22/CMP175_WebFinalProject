@@ -4,7 +4,7 @@
 
 }
 <div id="layoutSidenav_content">
-	
+
 	<main>
 		<div class="container-fluid px-4">
 			<h1 class="mt-4">Lecturer</h1>
@@ -13,86 +13,90 @@
 				<li class="breadcrumb-item active">Manage</li>
 				<li class="breadcrumb-item active">Lecturer</li>
 			</ol>
-			<div class="card mb-4">
-				<div class="mb-3 row">
-					<div class="d-md-inline-block form-inline me-0 me-md-3 my-2 my-md-0 col-sm-4">
-						<div class="input-group">
-							<input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-							<button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<button data-bs-toggle="modal" data-bs-target="#modal"
-								onclick="addNew()" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 ">
-							Add new Lecturer
-						</button>
+		</div>
+		<div class="card mb-4">
+			<div class="mb-3 row">
+				<div class="d-md-inline-block form-inline me-0 me-md-3 my-2 my-md-0 col-sm-4">
+					<div class="input-group">
+						<input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+						<button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
 					</div>
 				</div>
-				<div class="card-header">
-					<i class="fas fa-table me-1"></i>
-					List of Lecturer 
+				<div class="col-sm-4">
+					<button data-bs-toggle="modal" data-bs-target="#modal"
+							onclick="addNew()" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 ">
+						Add new Lecturer
+					</button>
 				</div>
-				<div class="card-body">
-					<table id="" class="table" >
-						<thead>
-							<tr>
-								<th>#</th>
-								<th>ID</th>
-								<th>Name</th>
-								<th>Phone</th>
-								<th>Email</th>
-								
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>1</td>
-								<td>2011061154</td>
-								<td>Toan</td>
-								<td>09858876</td>
-								<td>toan@gmail.com</td>
-
-								<td>
-									
-								</td>
-							</tr>
-						</tbody>
-					</table>
-					<nav aria-label="Page navigation example">
-						<ul class="pagination">
-							<li class="page-item"><a class="page-link" onclick="goPrev()" href="javascript:void(0)">Previous</a></li>
-							<li class="page-item">
-								<a class="page-link" href="#">
-									<span id="curPage">1</span>									
-								</a>
-							</li>
-							<li class="page-item"><a class="page-link" onclick="goNext()" href="javascript:void(0)">Next</a></li>
-						</ul>
-					</nav>
-					<script id="" type="text/x-jquery-tmpl">
+				<div class="col-sm-2">
+					<button onclick="show()" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 ">
+						Show
+					</button>
+				</div>
+			</div>
+			<div class="card-header">
+				<i class="fas fa-table me-1"></i>
+				List of Lecturer
+			</div>
+			<div class="card-body">
+				<table id="" class="table">
+					<thead>
 						<tr>
-							<td>${STT}</td>
-							<td>${id}</td>
-							<td>${courseName}</td>
-							<td>${subCode}</td>
-							<td>${credit}</td>
-							<td>${note}</td>
+							<th>#</th>
+							<th>ID</th>
+							<th>Name</th>
+							<th>Phone</th>
+							<th>Email</th>
+
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>2011061154</td>
+							<td>Toan</td>
+							<td>09858876</td>
+							<td>toan@gmail.com</td>
+
 							<td>
-								<button
-									class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
-									data-bs-toggle="modal" data-bs-target="#modal"
-									onclick="openModal(${id})">
-									Info
-								</button>
-								<button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
-											type="button"
-											onclick="deleteCourse(${id})">
-										Delete
-								</button>
 							</td>
 						</tr>
-					</script>
-				</div>
+					</tbody>
+				</table>
+				<nav aria-label="Page navigation example">
+					<ul class="pagination">
+						<li class="page-item"><a class="page-link" onclick="goPrev()" href="javascript:void(0)">Previous</a></li>
+						<li class="page-item">
+							<a class="page-link" href="#">
+								<span id="curPage">1</span>
+							</a>
+						</li>
+						<li class="page-item"><a class="page-link" onclick="goNext()" href="javascript:void(0)">Next</a></li>
+					</ul>
+				</nav>
+				<script id="" type="text/x-jquery-tmpl">
+					<tr>
+						<td>${STT}</td>
+						<td>${id}</td>
+						<td>${courseName}</td>
+						<td>${subCode}</td>
+						<td>${credit}</td>
+						<td>${note}</td>
+						<td>
+							<button
+								class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
+								data-bs-toggle="modal" data-bs-target="#modal"
+								onclick="openModal(${id})">
+								Info
+							</button>
+							<button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
+										type="button"
+										onclick="deleteCourse(${id})">
+									Delete
+							</button>
+						</td>
+					</tr>
+				</script>
 			</div>
 		</div>
 	</main>

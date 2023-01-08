@@ -1,165 +1,175 @@
 ﻿@{
-    ViewData["Title"] = "Student Page";
-    ViewData["js"] = "home.js";
+	ViewData["Title"] = "Student Page";
+	ViewData["js"] = "home.js";
 }
 
 <div id="layoutSidenav_content">
-
 	<main>
-		<div class="container-fluid px-4">
+		<div class="container-fluid px-4 " >
 			<h1 class="mt-4">Student</h1>
 			<ol class="breadcrumb mb-4">
 				<li class="breadcrumb-item"><a href="/Home">Home</a></li>
 				<li class="breadcrumb-item active">Manage</li>
 				<li class="breadcrumb-item active">Student</li>
 			</ol>
-			<div class="card mb-4">
-				<div class="mb-3 row ">
-					<div class="d-md-inline-block form-inline me-0 me-md-3 my-2 my-md-0 col-sm-4">
-						<div class="input-group">
-							<input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-							<button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<button data-bs-toggle="modal" data-bs-target="#modal"
-								onclick="addNewStudent()" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 ">
-							Add new Student
-						</button>
-					</div>
-					<div class="col-sm-4">
-						<button 
-								onclick="show()" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 ">
-							Show
-						</button>
+		</div>
+		<div class="card mb-4">
+			<div class="mb-3 row ">
+				<div class="d-md-inline-block form-inline me-0 me-md-3 my-2 my-md-0 col-sm-4">
+					<div class="input-group">
+						<input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+						<button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
 					</div>
 				</div>
-				<div class="card-header">
-					<i class="fas fa-table me-1"></i>
-					List of Student
+				<div class="col-sm-4">
+					<button data-bs-toggle="modal" data-bs-target="#modal"
+							onclick="addNewStudent()" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 ">
+						Add new Student
+					</button>
 				</div>
-				<div>
-					<table id="tblStudent" class="table">
-						<thead>
-							<tr>
-								<th>#</th>
-								<th>ID</th>
-								<th>Name</th>
-								<th>Phone</th>
-								<th>Town</th>
-								<th>Gender</th>
-								<th>Email</th>
-
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>1</td>
-								<td>2011061154</td>
-								<td>Toan</td>
-								<td>09858876</td>
-								<td>HCM</td>
-								<td>Male</td>
-								<td>toan@gmail.com</td>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
-					<nav aria-label="Page navigation example">
-						<ul class="pagination">
-							<li class="page-item"><a class="page-link" onclick="goPrevInStu()" href="javascript:void(0)">Previous</a></li>
-							<li class="page-item">
-								<a class="page-link" href="#">
-									<span id="curSPage">1</span>
-								</a>
-							</li>
-							
-							<li class="page-item"><a class="page-link" onclick="goNextInStu()" href="javascript:void(0)">Next</a></li>
-						</ul>
-					</nav>
-					<script id="studentTemplate" type="text/x-jquery-tmpl">
+				<div class="col-sm-2">
+					<button onclick="show()" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 ">
+						Show
+					</button>
+				</div>
+			</div>
+			<div class="card-header">
+				<i class="fas fa-table me-1"></i>
+				List of Student
+			</div>
+			<div>
+				<table id="tblStudent" class="table">
+					<thead>
 						<tr>
-							<td>${STT}</td>
-							<td>${studentId}</td>
-							<td>${studentName}</td>
-							<td>${studentPhone}</td>						
-							<td>${studentTown}</td>
-							<td>${studentGender}</td>
-							<td>${studentEmail}</td>
-							<td>
-								<button
-									class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
-									data-bs-toggle="modal" data-bs-target="#modal"
-									onclick="openStudentModal(${id})">
-									Info
-								</button>
-								<button class="btn btn-danger btn-block fa-lg gradient-custom-2 mb-3"
-											type="button"
-											onclick="deleteStudent(${id})">
-										Delete
-								</button>
-							</td>
+							<th>#</th>
+							<th>ID</th>
+							<th>Name</th>
+							<th>Phone</th>
+							<th>Town</th>
+							<th>Gender</th>
+							<th>Email</th>
+
 						</tr>
-					</script>
-					<div id="modal" class="modal fade" data-bs-backdrop="static" tabindex="-1">
-						<div class="modal-dialog modal-lg">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h5 class="modal-title">Student Detail</h5>
-									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-								</div>
-								<div class="modal-body">
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>2011061154</td>
+							<td>Toan</td>
+							<td>09858876</td>
+							<td>HCM</td>
+							<td>Male</td>
+							<td>toan@gmail.com</td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+				<nav aria-label="Page navigation example">
+					<ul class="pagination">
+						<li class="page-item"><a class="page-link" onclick="goPrevInStu()" href="javascript:void(0)">Previous</a></li>
+						<li class="page-item">
+							<a class="page-link" href="#">
+								<span id="curSPage">1</span>
+							</a>
+						</li>
 
-									<div class="mb-3 row">
-										<label for="txtId" class="col-sm-2 col-form-label">ID</label>
-										<div class="col-sm-2">
-											<input type="text" readonly class="form-control-plaintext" id="txtId" value="">
-										</div>
-										<label for="txtStuId" class="col-sm-2 col-form-label">Student ID</label>
-										<div class="col-sm-4">
-											<input type="text" class="form-control" id="txtStuId">
-										</div>
-									</div>
-									<div class="mb-3 row">
-										<label for="txtStuName" class="col-sm-2 col-form-label">Student Name</label>
-										<div class="col-sm-6">
-											<input type="text" class="form-control" id="txtStuName">
-										</div>
-									</div>
-									<div class="mb-3 row">
-										<label for="txtPhone" class="col-sm-2 col-form-label">Student Phone</label>
-										<div class="col-sm-3">
-											<input type="text" class="form-control" id="txtPhone">
-										</div>
-										<label for="txtTown" class="col-sm-2 col-form-label">Student Town</label>
-										<div class="col-sm-4">
-											<input type="text" class="form-control" id="txtTown">
-										</div>
-									</div>
+						<li class="page-item"><a class="page-link" onclick="goNextInStu()" href="javascript:void(0)">Next</a></li>
+					</ul>
+				</nav>
+				<script id="studentTemplate" type="text/x-jquery-tmpl">
+					<tr>
+						<td>${STT}</td>
+						<td>${studentId}</td>
+						<td>${studentName}</td>
+						<td>${studentPhone}</td>
+						<td>${studentTown}</td>
+						<td>${studentGender}</td>
+						<td>${studentEmail}</td>
+						<td>
+							<button
+								class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
+								data-bs-toggle="modal" data-bs-target="#modal"
+								onclick="openStudentModal(${id})">
+								Info
+							</button>
+							<button class="btn btn-danger btn-block fa-lg gradient-custom-2 mb-3"
+										type="button"
+										onclick="deleteStudent(${id})">
+									Delete
+							</button>
+						</td>
+					</tr>
+				</script>
+				<div id="modal" class="modal fade" data-bs-backdrop="static" tabindex="-1">
+					<div class="modal-dialog modal-lg">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Student Detail</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
 
-									<div class="mb-3 row">
-										<label for="txtGender" class="col-sm-2 col-form-label">Student Gender</label>
-										<div class="col-sm-2">
-											<input type="text" class="form-control" id="txtGender">
-										</div>
-										<label for="txtEmail" class="col-sm-2 col-form-label">Student Email</label>
-										<div class="col-sm-4">
-											<input type="text" class="form-control" id="txtEmail">
-										</div>
+								<div class="mb-3 row">
+									<label for="txtId" class="col-sm-2 col-form-label">ID</label>
+									<div class="col-sm-2">
+										<input type="text" readonly class="form-control-plaintext" id="txtId" value="">
+									</div>
+									<label for="txtStuId" class="col-sm-2 col-form-label">Student ID</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" id="txtStuId">
 									</div>
 								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-									<button id="btnSave" type="button" class="btn btn-primary" onclick="saveStudent()">Save changes</button>
-									<button id="btnInsert" type="button" class="btn btn-success"
-											data-bs-dismiss="modal" onclick="insertStudent()">
-										Add
-									</button>
+								<div class="mb-3 row">
+									<label for="txtStuName" class="col-sm-2 col-form-label">Student Name</label>
+									<div class="col-sm-6">
+										<input type="text" class="form-control" id="txtStuName">
+									</div>
+								</div>
+								<div class="mb-3 row">
+									<label for="txtPhone" class="col-sm-2 col-form-label">Student Phone</label>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" id="txtPhone">
+									</div>
+									<label for="txtTown" class="col-sm-2 col-form-label">Student Town</label>
+									<div class="col-sm-4">
+										<select class="form-select" name="selCity" id="selCity" required>
+											<option selected disabled value="">Choose...</option>
+											@*@foreach (var p in Model)
+											{
+											<option value="@p.Id">@p.Province1</option>
+											}*@
+										</select>
+										<div class="invalid-feedback">
+											Please select a valid City.
+										</div>
+										@*<input type="text" class="form-control" id="txtTown">*@
+									</div>
+								</div>
+
+								<div class="mb-3 row">
+									<label for="txtGender" class="col-sm-2 col-form-label">Student Gender</label>
+									<div class="col-sm-2">
+										<input type="text" class="form-control" id="txtGender">
+									</div>
+									<label for="txtEmail" class="col-sm-2 col-form-label">Student Email</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" id="txtEmail">
+									</div>
 								</div>
 							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+								<button id="btnSave" type="button" class="btn btn-primary" onclick="saveStudent()">Save changes</button>
+								<button id="btnInsert" type="button" class="btn btn-success"
+										data-bs-dismiss="modal" onclick="insertStudent()">
+									Add
+								</button>
+							</div>
 						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</main>
 </div>
+

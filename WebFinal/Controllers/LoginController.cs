@@ -59,7 +59,7 @@ namespace WebFinal.Controllers
 				{
 					//var passHash = EncryptString(login.Password, _key);
 					var decryptedPass = DecryptString(usr.Password, _key);
-					
+
 					if (decryptedPass == login.Password)
 					{
 						res.Message = "Đăng nhập thành công !!";
@@ -101,13 +101,19 @@ namespace WebFinal.Controllers
 			return Json(res);
 
 		}
+		[HttpPost]
+		public IActionResult change_Pass(string username, string oldPass, string newPass)
+		{
+			var obj = ChangePass(username, oldPass, newPass);
+			return Json(obj);
 
+		}
 		public Users? checkLogin(LoginData login)
 		{
 			Users? usr = new Users();
 			if (login != null)
 			{
-				string cnStr = "Server = localhost,1433; Database = WebFinal;User id = danh;password = 123;";
+				string cnStr = "Server = localhost,1433; Database = WebFinal;User id = toan;password = 123;";
 				SqlConnection cmn = new SqlConnection(cnStr);
 				try
 				{
@@ -263,9 +269,58 @@ namespace WebFinal.Controllers
 			var res = db.Provinces.Where(x => x.Id == id).FirstOrDefault();
 			return res;
 		}
+		private object? ChangePass(string uid, string oPass, string nPass)
+		{
+			try
+			{
+				var db = new WebFinalContext();
+				var usr = db.Users.Where(x => x.Username == uid).FirstOrDefault();
+				if (usr == null)
+				{
+					return new
+					{
+						success = false,
+						message = "User Không tồn tại nha !!"
+					};
+				}
+				else
+				{
+					var cPass = DecryptString(usr.Password, _key);
+					if (cPass != oPass)
+					{
+						return new
+						{
+							success = false,
+							message = "Pass cũ không chính xác!!"
+						};
+
+					}
+					else
+					{
+						var hashPass = EncryptString(nPass, _key);
+						usr.Password = hashPass;
+						db.Users.Update(usr);
+						db.SaveChanges();
+						HttpContext.Session.Remove("Username");
+						HttpContext.Session.Remove("Fullname");
+						return new
+						{
+							success = true,
+							message = "Update Pass Completed  !!"
+						};
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				return new
+				{
+					success = false,
+					message = ex.Message
+				};
+			}
+		}
 	}
-
-
 }
 public class LoginData
 {
