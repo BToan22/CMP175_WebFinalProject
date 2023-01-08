@@ -1,0 +1,9 @@
+
+ngày 9/1
+đã xong
+coi lại insert (query theo ...id)
+làm phần tìm kiếm của lec và stu
+m kiểm tra cái province của stu đi
+layout info của Lec luôn
+
+rồi test toàn bộ xem có vấn đề gì ko dậy t sửa

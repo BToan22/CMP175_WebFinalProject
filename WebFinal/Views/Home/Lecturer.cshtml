@@ -18,18 +18,20 @@
 			<div class="mb-3 row">
 				<div class="d-md-inline-block form-inline me-0 me-md-3 my-2 my-md-0 col-sm-4">
 					<div class="input-group">
-						<input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-						<button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+						<input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
+							aria-describedby="btnNavbarSearch" />
+						<button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
+								class="fas fa-search"></i></button>
 					</div>
 				</div>
 				<div class="col-sm-4">
-					<button data-bs-toggle="modal" data-bs-target="#modal"
-							onclick="addNew()" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 ">
+					<button data-bs-toggle="modal" data-bs-target="#modal" onclick="addNewLec()"
+						class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 ">
 						Add new Lecturer
 					</button>
 				</div>
 				<div class="col-sm-2">
-					<button onclick="show()" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 ">
+					<button onclick="showLec()" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 ">
 						Show
 					</button>
 				</div>
@@ -39,7 +41,7 @@
 				List of Lecturer
 			</div>
 			<div class="card-body">
-				<table id="" class="table">
+				<table id="tblLecturer" class="table">
 					<thead>
 						<tr>
 							<th>#</th>
@@ -65,38 +67,93 @@
 				</table>
 				<nav aria-label="Page navigation example">
 					<ul class="pagination">
-						<li class="page-item"><a class="page-link" onclick="goPrev()" href="javascript:void(0)">Previous</a></li>
+						<li class="page-item"><a class="page-link" onclick="goPrevInLec()"
+								href="javascript:void(0)">Previous</a></li>
 						<li class="page-item">
 							<a class="page-link" href="#">
-								<span id="curPage">1</span>
+								<span id="curLPage">1</span>
 							</a>
 						</li>
-						<li class="page-item"><a class="page-link" onclick="goNext()" href="javascript:void(0)">Next</a></li>
+						<li class="page-item"><a class="page-link" onclick="goNextInLec()"
+								href="javascript:void(0)">Next</a></li>
 					</ul>
 				</nav>
-				<script id="" type="text/x-jquery-tmpl">
+				<script id="LecturerTemplate" type="text/x-jquery-tmpl">
 					<tr>
 						<td>${STT}</td>
-						<td>${id}</td>
-						<td>${courseName}</td>
-						<td>${subCode}</td>
-						<td>${credit}</td>
-						<td>${note}</td>
+						<td>${lecturerId}</td>
+						<td>${lecturerName}</td>
+						<td>${lecturerPhone}</td>
+						<td>${lecturerEmail}</td>
 						<td>
 							<button
 								class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
 								data-bs-toggle="modal" data-bs-target="#modal"
-								onclick="openModal(${id})">
+								onclick="openModalLec(${id})">
 								Info
 							</button>
 							<button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
 										type="button"
-										onclick="deleteCourse(${id})">
+										onclick="deleteLec(${id})">
 									Delete
 							</button>
 						</td>
 					</tr>
 				</script>
+				<div id="modal" class="modal fade" data-bs-backdrop="static" tabindex="-1">
+					<div class="modal-dialog modal-lg">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Student Detail</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+
+								<div class="mb-3 row">
+									<label for="txtId" class="col-sm-2 col-form-label">ID</label>
+									<div class="col-sm-2">
+										<input type="text" readonly class="form-control-plaintext" id="txtId" value="">
+									</div>
+									<label for="txtLecId" class="col-sm-2 col-form-label">Lecturer ID</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" id="txtLecId">
+									</div>
+								</div>
+								<div class="mb-3 row">
+									<label for="txtLecName" class="col-sm-2 col-form-label">Lecturer Name</label>
+									<div class="col-sm-6">
+										<input type="text" class="form-control" id="txtLecName">
+									</div>
+								</div>
+								<div class="mb-3 row">
+									<label for="txtLecPhone" class="col-sm-2 col-form-label">Lecturer Phone</label>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" id="txtLecPhone">
+									</div>
+									
+									
+
+								<div class="mb-3 row">
+									
+									<label for="txtLecEmail" class="col-sm-2 col-form-label">Lecturer Email</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" id="txtLecEmail">
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+								<button id="btnSave" type="button" class="btn btn-primary" onclick="saveLec()">Save
+									changes</button>
+								<button id="btnInsert" type="button" class="btn btn-success" data-bs-dismiss="modal"
+									onclick="insertLec()">
+									Add
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</main>

@@ -202,7 +202,7 @@ function deleteCourse(id) {
         });
     }
 }
-
+//STUDENT
 function openStudentModal(id) {
     $("#btnSave").show();
     $("btnInsert").hide();
@@ -381,6 +381,196 @@ function insertStudent() {
         type: "POST",
         url: "/Home/insert_student",
         data: { 'Student': item },
+        async: false,
+        success: function (res) {
+            if (res.success) {
+                alert("Insert Success !!!");
+                let c = res.data;
+                $("#txtId").val(c.id);
+
+                getStudent(1);
+            } else {
+                alert(res.message);
+            }
+        },
+        failure: function (res) {
+
+        },
+        error: function (res) {
+
+        }
+    });
+}
+//LECTURER
+function openModalLec(id) {
+    $("#btnSave").show();
+    $("btnInsert").hide();
+    if (lst != null && id != null && id > 0) {
+        var item = $.grep(lst, function (obj) {
+            return obj.id == id;
+        })[0];
+        $("#txtId").val(item.id);
+        $("#txtLecId").val(item.lecturerId);
+        $("#txtLecName").val(item.lecturerName);
+        $("#txtLecPhone").val(item.lecturerPhone);
+        $("#txtLecEmail").val(item.lecturerEmail);
+
+    }
+}
+function showLec() {
+    getLec(1);
+}
+function getLec(p) {
+    console.log(p);
+    $.ajax({
+        type: "POST",
+        url: "/Home/get_lecturer",
+        data: { 'Page': p, 'Size': 5 },
+        async: false,
+        success: function (res) {
+            if (res.success) {
+                let data = res.data;
+
+                if (data.data != null && data.data != undefined) {
+                    let stt = (p - 1) * 5 + 1;
+                    let data1 = [];
+                    for (var i = 0; i < data.data.length; i++) {
+                        let item = data.data[i];
+                        item.STT = stt;
+                        data1.push(item);
+                        stt++;
+                    }
+                    lst = data1;
+                    $("#tblLecturer tbody").html("");
+                    $("#LecturerTemplate").tmpl(data1).appendTo("#tblLecturer tbody");
+                }
+
+                totalPage = data.totalPage;
+                $("#curLPage").text(p);
+
+            } else {
+                alert(res.message);
+            }
+        },
+        failure: function (res) {
+
+        },
+        error: function (res) {
+
+        }
+    });
+}
+function goPrevInLec() {
+    var curPage = parseInt($("#curLPage").text());
+    if (curPage == 1) {
+        alert("This is first page");
+    } else {
+        var p = curPage - 1;
+
+
+        getLec(p)
+    }
+}
+function goNextInLec() {
+    var curPage = parseInt($("#curLPage").text());
+    if (curPage == totalPage) {
+        alert("This is last page");
+    } else {
+        var p = curPage + 1;
+
+        getLec(p)
+    }
+}
+function deleteLec(id) {
+    if (confirm("Are you sure delete this lecturer?") == false)
+        return;
+    if (id != null && id != undefined && id > 0) {
+        $.ajax({
+            type: "POST",
+            url: "/Home/delete_lecturer",
+            data: { 'id': id },
+            async: false,
+            success: function (res) {
+                if (res.success) {
+                    alert("Delete Success !!!");
+                    var page = parseInt($("#curLPage").text());
+                    getLec(page);
+                } else {
+                    alert(res.message);
+                }
+            },
+            failure: function (res) {
+
+            },
+            error: function (res) {
+
+            }
+        });
+    }
+}
+function addNewLec() {
+    $("#btnSave").hide();
+    $("btnInsert").show();
+    $("#txtId").val("");
+    $("#txtLecId").val("");
+    $("#txtLecName").val("");
+    $("#txtLecPhone").val();
+    $("#txtLecEmail").val("");
+}
+
+function saveLec() {
+    var item = {
+        id: $("#txtId").val(),
+        lecturerId: $("#txtLecId").val(),
+        lecturerName: $("#txtLecName").val(),
+        lecturerPhone: $("#txtLecPhone").val(),
+        lecturerEmail: $("#txtLecEmail").val(),
+    };
+    console.log(item);
+    $.ajax({
+        type: "POST",
+        url: "/Home/update_lecturer",
+        data: { 'Lecturer': item },
+        async: false,
+        success: function (res) {
+            if (res.success) {
+                alert("Update Success !!!");
+                let c = res.data;
+                var i = 0
+                for (i = 0; i < lst.length; i++) {
+                    if (lst[i].id == c.id) {
+                        c.STT = lst[i].STT;
+                        break;
+                    }
+                }
+                lst[i] = c;
+                $("#tblLecturer tbody").html("");
+                $("#LecturerTemplate").tmpl(lst).appendTo("#tblLecturer tbody");
+            } else {
+                alert(res.message);
+            }
+        },
+        failure: function (res) {
+
+        },
+        error: function (res) {
+
+        }
+    });
+}
+function insertLec() {
+    var item = {
+        id: 0,
+        lecturerId: $("#txtLecId").val(),
+        lecturerName: $("#txtLecName").val(),
+        lecturerPhone: $("#txtLecPhone").val(),
+        lecturerEmail: $("#txtLecEmail").val(),
+    };
+
+    $.ajax({
+        type: "POST",
+        url: "/Home/insert_lecturer",
+        data: { 'Lecturer': item },
         async: false,
         success: function (res) {
             if (res.success) {

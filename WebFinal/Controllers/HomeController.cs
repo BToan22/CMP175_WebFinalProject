@@ -146,6 +146,7 @@ namespace WebFinal.Controllers
             }
 
         }
+        [HttpPost]
         public IActionResult get_student(int Page, int Size)
         {
             var data = getStudent(Page, Size);
@@ -221,6 +222,103 @@ namespace WebFinal.Controllers
         public IActionResult update_student(Student student)
         {
             var c = updateStudent(student);
+            if (c != null)
+            {
+                var res = new
+                {
+                    Success = true,
+                    Message = "",
+                    Data = c
+                };
+                return Json(res);
+            }
+            else
+            {
+                var res = new
+                {
+                    Success = false,
+                    Message = "ERROR",
+                };
+                return Json(res);
+            }
+
+        }
+        [HttpPost]
+        public IActionResult get_lecturer(int Page, int Size)
+        {
+            var data = getLecturer(Page, Size);
+            if (data != null)
+            {
+                var res = new
+                {
+                    Success = true,
+                    Message = "",
+                    Data = data
+                };
+                return Json(res);
+            }
+            else
+            {
+                var res = new
+                {
+                    Success = false,
+                    Message = "ERROR",
+                };
+                return Json(res);
+            }
+        }
+
+        public IActionResult delete_lecturer(int id)
+        {
+            var c = deleteLecturer(id);
+            if (c != null)
+            {
+                var res = new
+                {
+                    Success = c,
+                    Message = "",
+
+                };
+                return Json(res);
+            }
+            else
+            {
+                var res = new
+                {
+                    Success = false,
+                    Message = "ERROR",
+                };
+                return Json(res);
+            }
+        }
+
+        public IActionResult insert_lecturer(Lecturer lecturer)
+        {
+            var c = insertLecturer(lecturer);
+            if (c != null)
+            {
+                var res = new
+                {
+                    Success = true,
+                    Message = "",
+                    Data = c
+                };
+                return Json(res);
+            }
+            else
+            {
+                var res = new
+                {
+                    Success = false,
+                    Message = "ERROR",
+                };
+                return Json(res);
+            }
+
+        }
+        public IActionResult update_lecturer(Lecturer lecturer)
+        {
+            var c = updateLecturer(lecturer);
             if (c != null)
             {
                 var res = new
@@ -458,6 +556,112 @@ namespace WebFinal.Controllers
                 db.Students.Update(s1);
                 db.SaveChanges();
                 return s1;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        //LECTURER
+        private object? getLecturer(int page, int size)
+        {
+            try
+            {
+                var db = new WebFinalContext();
+                var ls = db.Lecturers.ToList();
+
+                var offset = (page - 1) * size;
+                var totalRecord = ls.Count();
+                var totalPage = (totalRecord % size) == 0 ?
+                    (int)(totalRecord / size) :
+                    (int)(totalRecord / size + 1);
+                var lst = ls.Skip(offset).Take(size).ToList();
+                return new
+                {
+                    Data = lst,
+                    TotalRecord = totalRecord,
+                    TotalPage = totalPage,
+                    Page = page,
+                    Size = size
+                };
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
+        private Boolean? deleteLecturer(int? id)
+        {
+            try
+            {
+                if (id == null)
+                    return null;
+                var db = new WebFinalContext();
+                var l1 = db.Lecturers.Where(x => x.Id == id).FirstOrDefault();
+                if (l1 != null)
+                {
+                    db.Lecturers.Remove(l1);
+                    db.SaveChanges();
+                    return true;
+                }
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        private object? insertLecturer(Lecturer l)
+        {
+            try
+            {
+                if (l == null)
+                    return null;
+                var db = new WebFinalContext();
+                var l1 = new Lecturer();
+
+                if (l1.LecturerEmail!= l.LecturerEmail)
+                    l1.LecturerEmail = l.LecturerEmail;
+                
+                if (l1.LecturerPhone != l.LecturerPhone)
+                    l1.LecturerPhone = l.LecturerPhone;
+                if (l1.LecturerName != l.LecturerName)
+                    l1.LecturerName = l.LecturerName;
+                if (l1.LecturerId != l.LecturerId)
+                    l1.LecturerId = l.LecturerId;
+                db.Lecturers.Add(l1);
+                db.SaveChanges();
+                return l1;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        private object? updateLecturer(Lecturer l)
+        {
+            try
+            {
+                if (l == null)
+                    return null;
+                var db = new WebFinalContext();
+                var l1 = db.Lecturers.Where(x => x.Id == l.Id).FirstOrDefault();
+
+                if (l1.LecturerEmail != l.LecturerEmail)
+                    l1.LecturerEmail = l.LecturerEmail;
+                if (l1.LecturerPhone != l.LecturerPhone)
+                    l1.LecturerPhone = l.LecturerPhone;
+                if (l1.LecturerName != l.LecturerName)
+                    l1.LecturerName = l.LecturerName;
+                if (l1.LecturerId != l.LecturerId)
+                    l1.LecturerId = l.LecturerId;
+
+                db.Lecturers.Update(l1);
+                db.SaveChanges();
+                return l1;
             }
             catch (Exception ex)
             {

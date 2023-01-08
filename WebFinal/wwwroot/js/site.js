@@ -1,5 +1,5 @@
 ﻿function signOut() {
-    if (confirm("Bạn có chắc kèo là thoát chưa ?????") == true) {
+    if (confirm("Are you sure you want to LOG OUT ?????") == true) {
         $.ajax({
             type: "POST",
             url: "/Login/signOut",
@@ -26,30 +26,30 @@ function changePass() {
     pass1 = $("#txtPassword1").val();
     pass2 = $("#txtPassword2").val();
     if (oldpass == "" || oldpass == undefined || oldpass == null || oldpass.length < 3) {
-        alert("Vui lòng nhập mật khẩu cũ !!");
+        alert("Please enter OLD PASSWORD !!");
         return;
     }
     if (pass1 == "" || pass1 == undefined || pass1 == null || pass1.length < 3) {
-        alert("Vui lòng nhập mật khẩu mới !!");
+        alert("Please enter NEW PASSWORD !!");
         return;
     }
     if (pass2 == "" || pass2 == undefined || pass2 == null || pass2.length < 3) {
-        alert("Vui lòng nhập lại mật khẩu mới !!");
+        alert("Please re-enter NEW PASSWORD !!");
         return;
     }
     if (pass1 != pass2) {
-        alert(" Mật khẩu mới chưa trùng khớp !! ");
+        alert(" NEW PASSWORD does not MATCH !! ");
         return;
     }
     if (pass1 == oldpass) {
-        alert(" Nhập mật khẩu del gì y chang cái cũ !!!!!");
+        alert(" The NEW PASSWORD and The OLD PASSWORD are the same !!!!!");
         return;
     }
     if (pass2 == oldpass) {
-        alert(" Nhập mật khẩu del gì y chang cái cũ !!!!!");
+        alert("The NEW PASSWORD and The OLD PASSWORD are the same !!!!!");
         return;
     }
-    if (confirm("Bạn có chắc kèo là đổi pass không ?????") == true) {
+    if (confirm("Are you sure you want to CHANGE PASSWORD ?????") == true) {
         $.ajax({
             type: "POST",
             url: "/Login/change_Pass",
