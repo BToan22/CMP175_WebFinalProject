@@ -7,3 +7,131 @@ m kiểm tra cái province của stu đi
 layout info của Lec luôn
 
 rồi test toàn bộ xem có vấn đề gì ko dậy t sửa
+
+##Controller
+[HttpGet]
+        public IActionResult get_data_product(int Page, int Size, string proName)
+        {
+            var data = getData(Page, Size, proName);
+            if (data != null)
+            {
+                var res = new
+                {
+                    Success = true,
+                    Message = "",
+                    Data = data
+                };
+                return Json(res);
+            }
+            else
+            {
+                var res = new
+                {
+                    Success = false,
+                    Message = "Loi Xay Ra"
+                };
+                return Json(res);
+            }
+
+        }
+        private object getData(int page, int size, string proName)
+        {
+            try
+            {
+                if (proName == null)
+                {
+                    var ls = from c in context.Products.Where(a => a.IsDelete == false).ToList()
+                             orderby c.ProId descending
+                             select c;
+                    var offset = (page - 1) * size;
+                    var totalRecod = ls.Count();
+                    var totalPage = (totalRecod % size) == 0 ? (int)(totalRecod / size) : (int)(totalRecod / size + 1);
+                    var lst = ls.Skip(offset).Take(size).ToList();
+                    return new
+                    {
+                        Data = lst,
+                        TotalRecod = totalRecod,
+                        TotalPage = totalPage,
+                        Page = page,
+                        Size = size
+                    };
+                }
+                else
+                {
+                    var ls = from c in context.Products.Where(a => a.IsDelete == false).ToList()
+                             where c.ProName.Contains(proName)
+                             select c;
+                    var offset = (page - 1) * size;
+                    var totalRecod = ls.Count();
+                    var totalPage = (totalRecod % size) == 0 ? (int)(totalRecod / size) : (int)(totalRecod / size + 1);
+                    var lst = ls.Skip(offset).Take(size).ToList();
+                    return new
+                    {
+                        Data = lst,
+                        TotalRecod = totalRecod,
+                        TotalPage = totalPage,
+                        Page = page,
+                        Size = size
+                    };
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+## JS
+function search() {
+    proName = $("input[name='proName']").val();
+    if (proName == null || proName == "") {
+        proName = null;
+        $("#Spinner").hide();
+        $("#pagination").show();
+        getDataProducts(1, proName);
+    } else {
+        getDataProducts(p, proName);
+    }
+}
+
+function getDataProducts(p, proName) {
+    $.ajax({
+        type: "GET",
+        url: "/AdminProduct/get_data_product",
+        data: { 'page': p, 'size': size, 'proName': proName },
+        async: false,
+        success: function (res) {
+            if (res.success) {
+                let data = res.data;
+                if (data.data != null && data.data != undefined) {
+                    let stt = (p - 1) * size + 1;
+                    let dataRes = [];
+                    for (var i = 0; i < data.data.length; i++) {
+                        let item = data.data[i];
+                        item.STT = stt;
+                        dataRes.push(item);
+                        stt++;
+                    }
+                    list = dataRes;
+                    if (data.totalPage <= 1) {
+                        $("#pagination").hide();
+                    }
+                    $("#tbodyResult").html("");
+                    $("#courseTemplate").tmpl(list).appendTo("#tbodyResult");
+                }
+                totalPage = data.totalPage;
+                $("#curPage").text(p);
+            }
+            else {
+                alert(res.message);
+            }
+        },
+        failure: function (res) {
+            alert(res.message);
+        },
+        error: function (res) {
+
+        }
+    });
+}
+

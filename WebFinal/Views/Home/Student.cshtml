@@ -16,10 +16,14 @@
 		<div class="card mb-4">
 			<div class="mb-3 row ">
 				<div class="d-md-inline-block form-inline me-0 me-md-3 my-2 my-md-0 col-sm-4">
-					<div class="input-group">
-						<input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-						<button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
-					</div>
+					@using (Html.BeginForm())
+					{
+						<div class="form-group form-inline">
+							Find Student Name: @Html.TextBox("searchString","",new{@class="form-control"})
+							<input class="btn btn-default" type="submit" aria-label="Search for..." value="Search" />
+						</div>
+					}
+					
 				</div>
 				<div class="col-sm-4">
 					<button data-bs-toggle="modal" data-bs-target="#modal"
