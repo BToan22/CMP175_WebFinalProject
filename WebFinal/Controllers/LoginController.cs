@@ -32,6 +32,7 @@ namespace WebFinal.Controllers
 
 		}
 
+
 		[HttpPost]
 		public IActionResult Register(IFormCollection f)
 		{
@@ -113,7 +114,7 @@ namespace WebFinal.Controllers
 			Users? usr = new Users();
 			if (login != null)
 			{
-				string cnStr = "Server = localhost,1433; Database = WebFinal;User id = toan;password = 123;";
+				string cnStr = "Server = LAPTOP-MPPBE2T0; Database = WebFinal;User id = danh;password = 123;";
 				SqlConnection cmn = new SqlConnection(cnStr);
 				try
 				{

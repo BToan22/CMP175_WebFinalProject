@@ -25,7 +25,7 @@ namespace WebFinal.Controllers
 				var model = new
 				{
 					username = HttpContext.Session.GetString("Username"),
-					fullname = HttpContext.Session.GetString("Fullname")
+					fullname = HttpContext.Session.GetString("Fullname"),
 				};
 				return View(model);
 			}
@@ -35,9 +35,9 @@ namespace WebFinal.Controllers
 		public IActionResult Student()
 		{
 
-			return View();
+            return View();
 
-		}
+        }
 		public IActionResult Lecturer()
 		{
 			return View();
@@ -150,7 +150,31 @@ namespace WebFinal.Controllers
 			}
 
 		}
-		[HttpPost]
+        public IActionResult get_search(string SubjectID, int Page, int Size)
+        {
+            var data = getSearch(SubjectID, Page, Size);
+            if (data != null)
+            {
+                var res = new
+                {
+                    Success = true,
+                    Message = "",
+                    Data = data
+                };
+                return Json(res);
+            }
+            else
+            {
+                var res = new
+                {
+                    Success = false,
+                    Message = "ERROR",
+                };
+                return Json(res);
+            }
+        }
+
+        [HttpPost]
 		public IActionResult get_student(int Page, int Size)
 		{
 			var data = getStudent(Page, Size);
@@ -247,7 +271,31 @@ namespace WebFinal.Controllers
 			}
 
 		}
-		[HttpPost]
+
+        public IActionResult search_student(string StudentID, int Page, int Size)
+        {
+            var data = getSearchStudent(StudentID, Page, Size);
+            if (data != null)
+            {
+                var res = new
+                {
+                    Success = true,
+                    Message = "",
+                    Data = data
+                };
+                return Json(res);
+            }
+            else
+            {
+                var res = new
+                {
+                    Success = false,
+                    Message = "ERROR",
+                };
+                return Json(res);
+            }
+        }
+        [HttpPost]
 		public IActionResult get_lecturer(int Page, int Size)
 		{
 			var data = getLecturer(Page, Size);
@@ -344,9 +392,31 @@ namespace WebFinal.Controllers
 			}
 
 		}
-
-		//PRIVATE
-		private object? getCourse(string mj, int page, int size)
+        public IActionResult search_lecturer(string LecturerID, int Page, int Size)
+        {
+            var data = getSearchLecturer(LecturerID, Page, Size);
+            if (data != null)
+            {
+                var res = new
+                {
+                    Success = true,
+                    Message = "",
+                    Data = data
+                };
+                return Json(res);
+            }
+            else
+            {
+                var res = new
+                {
+                    Success = false,
+                    Message = "ERROR",
+                };
+                return Json(res);
+            }
+        }
+        //PRIVATE
+        private object? getCourse(string mj, int page, int size)
 		{
 			try
 			{
@@ -451,11 +521,38 @@ namespace WebFinal.Controllers
 				return null;
 			}
 		}
+        private object? getSearch(string id, int page, int size)
+        {
+            try
+            {
+                var db = new WebFinalContext();
+                var ls = db.Subjects.Where(x => x.SubjectId == id);
 
-		//STUDENT
+                var offset = (page - 1) * size;
+                var totalRecord = ls.Count();
+                var totalPage = (totalRecord % size) == 0 ?
+                    (int)(totalRecord / size) :
+                    (int)(totalRecord / size + 1);
+                var lst = ls.Skip(offset).Take(size).ToList();
+                return new
+                {
+                    Data = lst,
+                    TotalRecord = totalRecord,
+                    TotalPage = totalPage,
+                    Page = page,
+                    Size = size
+                };
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
+        //STUDENT
 
 
-		private object? getStudent(int page, int size)
+        private object? getStudent(int page, int size)
 		{
 			try
 			{
@@ -566,9 +663,36 @@ namespace WebFinal.Controllers
 				return null;
 			}
 		}
+        private object? getSearchStudent(string id, int page, int size)
+        {
+            try
+            {
+                var db = new WebFinalContext();
+                var ls = db.Students.Where(x => x.StudentId == id);
 
-		//LECTURER
-		private object? getLecturer(int page, int size)
+                var offset = (page - 1) * size;
+                var totalRecord = ls.Count();
+                var totalPage = (totalRecord % size) == 0 ?
+                    (int)(totalRecord / size) :
+                    (int)(totalRecord / size + 1);
+                var lst = ls.Skip(offset).Take(size).ToList();
+                return new
+                {
+                    Data = lst,
+                    TotalRecord = totalRecord,
+                    TotalPage = totalPage,
+                    Page = page,
+                    Size = size
+                };
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
+        //LECTURER
+        private object? getLecturer(int page, int size)
 		{
 			try
 			{
@@ -672,5 +796,39 @@ namespace WebFinal.Controllers
 				return null;
 			}
 		}
-	}
+        private object? getSearchLecturer(string id, int page, int size)
+        {
+            try
+            {
+                var db = new WebFinalContext();
+                var ls = db.Lecturers.Where(x => x.LecturerId == id);
+
+                var offset = (page - 1) * size;
+                var totalRecord = ls.Count();
+                var totalPage = (totalRecord % size) == 0 ?
+                    (int)(totalRecord / size) :
+                    (int)(totalRecord / size + 1);
+                var lst = ls.Skip(offset).Take(size).ToList();
+                return new
+                {
+                    Data = lst,
+                    TotalRecord = totalRecord,
+                    TotalPage = totalPage,
+                    Page = page,
+                    Size = size
+                };
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
+        private object? GetProvinces()
+        {
+            var db = new WebFinalContext();
+            var res = db.Provinces.ToList();
+            return res;
+        }
+    }
 }

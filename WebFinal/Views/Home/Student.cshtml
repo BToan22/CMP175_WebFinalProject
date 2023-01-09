@@ -15,16 +15,13 @@
 		</div>
 		<div class="card mb-4">
 			<div class="mb-3 row ">
-				<div class="d-md-inline-block form-inline me-0 me-md-3 my-2 my-md-0 col-sm-4">
-					@using (Html.BeginForm())
-					{
-						<div class="form-group form-inline">
-							Find Student Name: @Html.TextBox("searchString","",new{@class="form-control"})
-							<input class="btn btn-default" type="submit" aria-label="Search for..." value="Search" />
+				<div class="d-md-inline-block form-inline me-0 me-md-3 my-2 my-md-0 col-sm-3">
+						<div class="input-group">
+						
+							<input class="form-control" type="text"  id="btnSearchStudent"/>
+							<button class="btn btn-primary" type="button" ><i class="fas fa-search" onclick="searchStudent()"></i></button>
 						</div>
-					}
-					
-				</div>
+					</div>
 				<div class="col-sm-4">
 					<button data-bs-toggle="modal" data-bs-target="#modal"
 							onclick="addNewStudent()" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 ">
@@ -135,18 +132,8 @@
 										<input type="text" class="form-control" id="txtPhone">
 									</div>
 									<label for="txtTown" class="col-sm-2 col-form-label">Student Town</label>
-									<div class="col-sm-4">
-										<select class="form-select" name="selCity" id="selCity" required>
-											<option selected disabled value="">Choose...</option>
-											@*@foreach (var p in Model)
-											{
-											<option value="@p.Id">@p.Province1</option>
-											}*@
-										</select>
-										<div class="invalid-feedback">
-											Please select a valid City.
-										</div>
-										@*<input type="text" class="form-control" id="txtTown">*@
+									<div class="col-sm-4">																	
+										<input type="text" class="form-control" id="txtTown">
 									</div>
 								</div>
 
@@ -163,8 +150,8 @@
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-								<button id="btnSave" type="button" class="btn btn-primary" onclick="saveStudent()">Save changes</button>
-								<button id="btnInsert" type="button" class="btn btn-success"
+								<button id="btnSaveStu" type="button" class="btn btn-primary" onclick="saveStudent()">Save changes</button>
+								<button id="btnInsertStu" type="button" class="btn btn-success"
 										data-bs-dismiss="modal" onclick="insertStudent()">
 									Add
 								</button>

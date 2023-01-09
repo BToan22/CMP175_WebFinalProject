@@ -18,11 +18,10 @@
 			<div class="mb-3 row">
 				<div class="d-md-inline-block form-inline me-0 me-md-3 my-2 my-md-0 col-sm-4">
 					<div class="input-group">
-						<input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
-							aria-describedby="btnNavbarSearch" />
-						<button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
-								class="fas fa-search"></i></button>
-					</div>
+
+							<input class="form-control" type="text"  id="btnSearchLecturer"/>
+							<button class="btn btn-primary" type="button" ><i class="fas fa-search" onclick="searchLecturer()"></i></button>
+						</div>
 				</div>
 				<div class="col-sm-4">
 					<button data-bs-toggle="modal" data-bs-target="#modal" onclick="addNewLec()"
@@ -144,9 +143,9 @@
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-								<button id="btnSave" type="button" class="btn btn-primary" onclick="saveLec()">Save
+								<button id="btnSaveLec" type="button" class="btn btn-primary" onclick="saveLec()">Save
 									changes</button>
-								<button id="btnInsert" type="button" class="btn btn-success" data-bs-dismiss="modal"
+								<button id="btnInsertLec" type="button" class="btn btn-success" data-bs-dismiss="modal"
 									onclick="insertLec()">
 									Add
 								</button>

@@ -74,7 +74,7 @@ function goNext() {
 
 function openModal(id) {
     $("#btnSave").show();
-    $("btnInsert").hide();
+    $("#btnInsert").hide();
     if (lst != null && id != null && id > 0) {
         var item = $.grep(lst, function (obj) {
             return obj.id == id;
@@ -131,7 +131,7 @@ function save() {
 }
 function addNew() {
     $("#btnSave").hide();
-    $("btnInsert").show();
+    $("#btnInsert").show();
     $("#txtId").val("");
     $("#txtSubId").val("");
     $("#txtName").val("");
@@ -202,10 +202,56 @@ function deleteCourse(id) {
         });
     }
 }
+
+function search() {
+    var id = $("#btnSearch").val();
+    var page = parseInt($("#curPage").text());
+    getSearch(id, page);
+}
+                    
+              
+function getSearch(id, p) {
+    $.ajax({
+        type: "POST",
+        url: "/Home/get_search",
+        data: { 'SubjectID': id, 'Page': p, 'Size': 5 },
+        async: false,
+        success: function (res) {
+            if (res.success) {
+                let data = res.data;
+                if (data.data != null && data.data != undefined) {
+                    let stt = (p - 1) * 5 + 1;
+                    let data1 = [];
+                    for (var i = 0; i < data.data.length; i++) {
+                        let item = data.data[i];
+                        item.STT = stt;
+                        data1.push(item);
+                        stt++;
+                    }
+                    lst = data1;
+                    $("#tblResult tbody").html("");
+                    $("#courseTemplate").tmpl(data1).appendTo("#tblResult tbody");
+                }
+
+                totalPage = data.totalPage;
+                $("#curPage").text(p);
+
+            } else {
+                alert(res.message);
+            }
+        },
+        failure: function (res) {
+
+        },
+        error: function (res) {
+
+        }
+    });
+}
 //STUDENT
 function openStudentModal(id) {
-    $("#btnSave").show();
-    $("btnInsert").hide();
+    $("#btnSaveStu").show();
+    $("#btnInsertStu").hide();
     if (lst != null && id != null && id > 0) {
         var item = $.grep(lst, function (obj) {
             return obj.id == id;
@@ -312,8 +358,8 @@ function deleteStudent(id) {
     }
 }
 function addNewStudent() {
-    $("#btnSave").hide();
-    $("btnInsert").show();
+    $("#btnSaveStu").hide();
+    $("#btnInsertStu").show();
     $("#txtId").val("");
     $("#txtStuId").val("");
     $("#txtStuName").val("");
@@ -401,10 +447,55 @@ function insertStudent() {
         }
     });
 }
+function searchStudent() {
+    var id = $("#btnSearchStudent").val();
+    var page = parseInt($("#curSPage").text());
+    getSearchStudent(id, page);
+}
+
+
+function getSearchStudent(id, p) {
+    $.ajax({
+        type: "POST",
+        url: "/Home/search_student",
+        data: { 'StudentID': id, 'Page': p, 'Size': 5 },
+        async: false,
+        success: function (res) {
+            if (res.success) {
+                let data = res.data;
+                if (data.data != null && data.data != undefined) {
+                    let stt = (p - 1) * 5 + 1;
+                    let data1 = [];
+                    for (var i = 0; i < data.data.length; i++) {
+                        let item = data.data[i];
+                        item.STT = stt;
+                        data1.push(item);
+                        stt++;
+                    }
+                    lst = data1;
+                    $("#tblStudent tbody").html("");
+                    $("#studentTemplate").tmpl(data1).appendTo("#tblStudent tbody");
+                }
+
+                totalPage = data.totalPage;
+                $("#curSPage").text(p);
+
+            } else {
+                alert(res.message);
+            }
+        },
+        failure: function (res) {
+
+        },
+        error: function (res) {
+
+        }
+    });
+}
 //LECTURER
 function openModalLec(id) {
-    $("#btnSave").show();
-    $("btnInsert").hide();
+    $("#btnSaveLec").show();
+    $("#btnInsertLec").hide();
     if (lst != null && id != null && id > 0) {
         var item = $.grep(lst, function (obj) {
             return obj.id == id;
@@ -509,8 +600,8 @@ function deleteLec(id) {
     }
 }
 function addNewLec() {
-    $("#btnSave").hide();
-    $("btnInsert").show();
+    $("#btnSaveLec").hide();
+    $("#btnInsertLec").show();
     $("#txtId").val("");
     $("#txtLecId").val("");
     $("#txtLecName").val("");
@@ -579,6 +670,51 @@ function insertLec() {
                 $("#txtId").val(c.id);
 
                 getStudent(1);
+            } else {
+                alert(res.message);
+            }
+        },
+        failure: function (res) {
+
+        },
+        error: function (res) {
+
+        }
+    });
+}
+function searchLecturer() {
+    var id = $("#btnSearchLecturer").val();
+    var page = parseInt($("#curLPage").text());
+    getSearchLecturer(id, page);
+}
+
+
+function getSearchLecturer(id, p) {
+    $.ajax({
+        type: "POST",
+        url: "/Home/search_lecturer",
+        data: { 'LecturerID': id, 'Page': p, 'Size': 5 },
+        async: false,
+        success: function (res) {
+            if (res.success) {
+                let data = res.data;
+                if (data.data != null && data.data != undefined) {
+                    let stt = (p - 1) * 5 + 1;
+                    let data1 = [];
+                    for (var i = 0; i < data.data.length; i++) {
+                        let item = data.data[i];
+                        item.STT = stt;
+                        data1.push(item);
+                        stt++;
+                    }
+                    lst = data1;
+                    $("#tblLecturer tbody").html("");
+                    $("#LecturerTemplate").tmpl(data1).appendTo("#tblLecturer tbody");
+                }
+
+                totalPage = data.totalPage;
+                $("#curLPage").text(p);
+
             } else {
                 alert(res.message);
             }
